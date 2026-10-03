@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "SHA-256 of UTF-8 canonical JSON; object keys sorted by JavaScript UTF-16 order; array order preserved; map hash omits only top-level contentHash",
+  "vectors": [
+    { "name": "key-order", "value": { "b": 2, "a": 1 }, "canonical": "{\"a\":1,\"b\":2}", "sha256": "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777", "operation": "hashContent" },
+    { "name": "array-order", "value": { "items": [2, 1], "flag": true }, "canonical": "{\"flag\":true,\"items\":[2,1]}", "sha256": "451b9684bf85b3a24aea055e882d594fbb6bec93ae42d4322450c9c063b113c3", "operation": "hashContent" },
+    { "name": "unicode", "value": { "笔记": "保留", "a": null }, "canonical": "{\"a\":null,\"笔记\":\"保留\"}", "sha256": "ab5f240501b0c181252ab07a4bedeacd122126a43b944f60676942346f35e92e", "operation": "hashContent" },
+    { "name": "map-top-level-only", "value": { "projectId": "sample", "contentHash": "ignored", "nested": { "contentHash": "kept" } }, "canonical": "{\"nested\":{\"contentHash\":\"kept\"},\"projectId\":\"sample\"}", "sha256": "59695df899761c7dc2d02dff18a6042a9ad40557a512519e0c1d8c42895a4a8d", "operation": "mapHash" }
+  ]
+}

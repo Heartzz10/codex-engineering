@@ -1,0 +1,5 @@
+[
+  { "id": "gpt-6-luna", "efforts": ["low", "medium"], "sourceRef": "offline-fixture:not-current-capability-proof" },
+  { "id": "gpt-6-sol", "efforts": ["low", "medium", "high"], "sourceRef": "offline-fixture:not-current-capability-proof" },
+  { "id": "gpt-6-astra", "efforts": ["medium", "high"], "sourceRef": "offline-fixture:not-current-capability-proof" }
+]

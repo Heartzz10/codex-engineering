@@ -1,0 +1,987 @@
+{
+  "artifactKind": "implementation-contract",
+  "planVersion": "0.7",
+  "deploymentStatus": "planned",
+  "installedPublicPackageVersion": "0.1.0",
+  "repository": "https://github.com/cursor/plugins",
+  "repositorySubdirectory": "pstack",
+  "pinnedCommit": "b42effe0aa50f59c693d7e2924714e015e00bf7c",
+  "pstackTreeSha": "f66b1f3ed67364a915305457ee9099edc44f9333",
+  "sourceVerification": {
+    "inventoryMetadataAvailable": true,
+    "pinnedBodiesVerifiedThisTurn": false,
+    "officialMainSelectedBodiesReviewed": true,
+    "bodyReviewScope": "Selected routing, investigation/debugging, create/maintain verification workflows; not all upstream content.",
+    "implementationGate": "Retrieve locked bodies, verify Git blob hashes and LICENSE, inspect all required dependencies, reconcile main-to-pin differences and finalize per-paragraph effects before implementation.",
+    "dependencyClosureStatus": "pending_locked_body_review",
+    "effectRowsStatus": "initial_mandatory_contract_not_yet_a_complete_locked_source_extraction",
+    "pinnedGitBlobHashMethod": "sha1(UTF8(\"blob \" + decimalByteLength + NUL) + rawFileBytes)"
+  },
+  "license": {
+    "reported": "MIT",
+    "path": "pstack/LICENSE",
+    "blobSha": "6b5400237fdf6545be0b8fae370d6f2fcff8fb25",
+    "lockedTextReviewRequired": true,
+    "retainNoticesOnCopyOrAdapt": true
+  },
+  "adoptionRules": {
+    "selectedCapabilitiesRequireCompleteEffects": true,
+    "allPotetoModeExecutionWorkflowsAdopted": false,
+    "carrierAdaptationAllowed": "Shared Skill plus project configuration may replace per-project generated Skill only with equivalent discoverability, execution, errors, evidence and maintenance.",
+    "scopeReduction": "Missing mandatory selected effects stay blocked or incomplete; do not self-exempt core behavior.",
+    "featureRequirementHistory": "Local design extension, not claimed as upstream built-in functionality."
+  },
+  "adoptedCapabilities": [
+    {
+      "id": "P1",
+      "name": "任务分类与工作流选择",
+      "effectScope": "全部锁定任务类别的分类；仅选定执行流程采用",
+      "dependencies": [
+        "locked_route_catalog",
+        "available_common_workflows"
+      ],
+      "status": "planned",
+      "implementationRefs": [],
+      "evidenceRefs": [],
+      "requiredEffectIds": [
+        "P1-E01",
+        "P1-E02"
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "调查与基于运行证据排错",
+      "effectScope": "调查、bug修复、现场取证、已有trace分析及必要依赖",
+      "dependencies": [
+        "P1",
+        "how",
+        "why",
+        "principle-fix-root-causes",
+        "applicable_runtime_or_trace_tools"
+      ],
+      "status": "planned",
+      "implementationRefs": [],
+      "evidenceRefs": [],
+      "requiredEffectIds": [
+        "P2-E01",
+        "P2-E02",
+        "P2-E03",
+        "P2-E04",
+        "P2-E05",
+        "P2-E06"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "验证能力创建",
+      "effectScope": "所有已知表面地图及完整五段控制能力，初次实跑至少一条功能链",
+      "dependencies": [
+        "P1",
+        "project_controls",
+        "feature_map",
+        "real_execution_tools"
+      ],
+      "status": "planned",
+      "implementationRefs": [],
+      "evidenceRefs": [],
+      "requiredEffectIds": [
+        "P3-E01",
+        "P3-E02",
+        "P3-E03",
+        "P3-E04",
+        "P3-E05"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "验证能力维护",
+      "effectScope": "完整源码核对和适用入口的逐功能实际维护",
+      "dependencies": [
+        "P3",
+        "feature_map_lifecycle",
+        "immutable_evidence",
+        "instance_coordination"
+      ],
+      "status": "planned",
+      "implementationRefs": [],
+      "evidenceRefs": [],
+      "requiredEffectIds": [
+        "P4-E01",
+        "P4-E02",
+        "P4-E03",
+        "P4-E04"
+      ]
+    }
+  ],
+  "requiredEffects": [
+    {
+      "effectId": "P1-E01",
+      "capabilityId": "P1",
+      "requirement": "覆盖锁定版全部任务分类，按意图选择并按需读取；分类覆盖不等于所有执行流程已采用。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/poteto-mode/SKILL.md",
+          "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+        },
+        {
+          "path": "pstack/README.md",
+          "blobSha": "b7cdef8aeb15da88a8f9cdd82904d884552395b7"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-02",
+        "PS-04"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P1-E02",
+      "capabilityId": "P1",
+      "requirement": "区分调查、修复、活进程取证与已有trace分析；未采用类别明确not_adopted并使用合适既有能力。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/poteto-mode/SKILL.md",
+          "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+        },
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+          "blobSha": "7deba2c88ebc708a541ad226e904217c3eeceecd"
+        },
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/investigation.md",
+          "blobSha": "cd119f04f23e0b7acb3f8cc5ba13ce4ab7aa6c7d"
+        },
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+          "blobSha": "ba659bfe1c4c2f956f3285974bfdc941120f9948"
+        },
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+          "blobSha": "48ed6b2f690215027eda96a1897ed98212bbd07a"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-01",
+        "PS-04"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P2-E01",
+      "capabilityId": "P2",
+      "requirement": "先确认调查或修复目标，在相同用户入口复现；不能复现时缩窄触发条件或补取证。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/investigation.md",
+          "blobSha": "cd119f04f23e0b7acb3f8cc5ba13ce4ab7aa6c7d"
+        },
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+          "blobSha": "7deba2c88ebc708a541ad226e904217c3eeceecd"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-01",
+        "FM-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P2-E02",
+      "capabilityId": "P2",
+      "requirement": "假设由运行证据支持或排除，确认机制后修复；撤销被证据否定的试改，仅撤销本次试改而不覆盖用户工作。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+          "blobSha": "7deba2c88ebc708a541ad226e904217c3eeceecd"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-01",
+        "FM-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P2-E03",
+      "capabilityId": "P2",
+      "requirement": "how追代码结构，why追历史和可用依据；检查同类根因模式及重启后的持久化状态。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/how/SKILL.md",
+          "blobSha": "a3a835fa660673903ee0cbc5262b3258bf897d7a"
+        },
+        {
+          "path": "pstack/skills/why/SKILL.md",
+          "blobSha": "79b526077dd843ea3e907dd5d86e470260efbeda"
+        },
+        {
+          "path": "pstack/skills/principle-fix-root-causes/SKILL.md",
+          "blobSha": "7e5a419aeec97b4076fa517865013677428a9fa3"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-01",
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P2-E04",
+      "capabilityId": "P2",
+      "requirement": "同入口失败到成功的真实复验；便宜明确回归先取失败证据，昂贵或不明确时说明替代证据。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+          "blobSha": "7deba2c88ebc708a541ad226e904217c3eeceecd"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "FM-03",
+        "AV-01",
+        "PS-01"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P2-E05",
+      "capabilityId": "P2",
+      "requirement": "现场取证使用适用CPU、堆或UI trace，收敛热路径/保留链并映射符号和代码位置；只诊断时不擅自修产品。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+          "blobSha": "ba659bfe1c4c2f956f3285974bfdc941120f9948"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-01"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P2-E06",
+      "capabilityId": "P2",
+      "requirement": "已有trace先转为可查询样本/帧/节点并解析符号，不擅自采集新现场；无前后配对证据不得称确认改善。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+          "blobSha": "48ed6b2f690215027eda96a1897ed98212bbd07a"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-01"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P3-E01",
+      "capabilityId": "P3",
+      "requirement": "查全用户表面、启动与就绪条件、现有驱动、证据及实例隔离，不把样例control-notes当通用驱动。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/create-verification-skill/SKILL.md",
+          "blobSha": "f869e26122991252373d5b8f6357e5b9ff195a00"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-01",
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P3-E02",
+      "capabilityId": "P3",
+      "requirement": "保留Launch/Doctor/Drive/Evidence/Cleanup全部能力，优先已有工具；dry-run副作用也需实际验证。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/create-verification-skill/SKILL.md",
+          "blobSha": "f869e26122991252373d5b8f6357e5b9ff195a00"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P3-E03",
+      "capabilityId": "P3",
+      "requirement": "功能地图索引和逐功能投影包含子功能、全部已知用户入口、前提、步骤、预期、陷阱和证据。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/create-verification-skill/SKILL.md",
+          "blobSha": "f869e26122991252373d5b8f6357e5b9ff195a00"
+        },
+        {
+          "path": "pstack/skills/create-verification-skill/references/feature-map-example/README.md",
+          "blobSha": "fb64570cfab3bbe672fe80925651933ebd57aa33"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "FM-01",
+        "AV-05",
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P3-E04",
+      "capabilityId": "P3",
+      "requirement": "至少真实运行一条完整功能链，并确认清理之后原始证据保留；空模板或未跑完保持草稿/blocked。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/create-verification-skill/SKILL.md",
+          "blobSha": "f869e26122991252373d5b8f6357e5b9ff195a00"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "FM-01",
+        "AV-01",
+        "AV-04",
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P3-E05",
+      "capabilityId": "P3",
+      "requirement": "以公共Skill和项目配置替换专属Skill载体后，新的有限上下文任务仍能发现和直接调用完整验证能力。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/create-verification-skill/SKILL.md",
+          "blobSha": "f869e26122991252373d5b8f6357e5b9ff195a00"
+        },
+        {
+          "path": "pstack/skills/poteto-mode/SKILL.md",
+          "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "normal_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-02"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P4-E01",
+      "capabilityId": "P4",
+      "requirement": "显式维护逐功能核对源码、发现新增用户表面并更新地图，不能仅核对现有登记表。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/maintain-verification-skill/SKILL.md",
+          "blobSha": "a2680b91fead45a0b4963d8c367a854956bea59d"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "maintenance",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P4-E02",
+      "capabilityId": "P4",
+      "requirement": "同一协调者在健康实例逐功能实际验证全部适用入口；意外失败后重做doctor或恢复实例。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/maintain-verification-skill/SKILL.md",
+          "blobSha": "a2680b91fead45a0b4963d8c367a854956bea59d"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "maintenance_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "AV-03",
+        "AV-05",
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P4-E03",
+      "capabilityId": "P4",
+      "requirement": "区分文档漂移、驱动缺口、产品故障；清理保留证据；维护不能顺手修产品来获得通过。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/maintain-verification-skill/SKILL.md",
+          "blobSha": "a2680b91fead45a0b4963d8c367a854956bea59d"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "maintenance_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    },
+    {
+      "effectId": "P4-E04",
+      "capabilityId": "P4",
+      "requirement": "报告clean/changed/blocked和真实覆盖；实测不可达只保留观察，不冒充正向业务通过；全维护不能改为抽样后称完成。",
+      "sourceRefs": [
+        {
+          "path": "pstack/skills/maintain-verification-skill/SKILL.md",
+          "blobSha": "a2680b91fead45a0b4963d8c367a854956bea59d"
+        }
+      ],
+      "sourceParagraphStatus": "pending_locked_body_review",
+      "branch": "maintenance_and_failure",
+      "dependencies": [],
+      "acceptanceCaseIds": [
+        "AV-05",
+        "PS-03"
+      ],
+      "localImplementationRefs": [],
+      "evidenceRefs": [],
+      "status": "planned",
+      "completionRule": "All mandatory behavior and applicable failure branches require current real evidence; missing core behavior is not not_applicable."
+    }
+  ],
+  "routeCatalog": [
+    {
+      "category": "authoring-a-skill",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "blobSha": "8c5a55a44f5e95bba92f652da0ac87e941c49538",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "autonomous-run",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/autonomous-run.md",
+      "blobSha": "12c3a7d84effcacf3550cb893be67498d7b28a4a",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "autopilot-full",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/autopilot-full.md",
+      "blobSha": "5456b79489978c20ca846d06104e9990bb0b7c44",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "autopilot-stack",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/autopilot-stack.md",
+      "blobSha": "810a70fff72ae49a9387b5ea41dcb13f890c83c0",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "babysit",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/babysit.md",
+      "blobSha": "73eddb732ad9d4a4c27c16e3cc6c41f78becc3e1",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "bug-fix",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+      "blobSha": "7deba2c88ebc708a541ad226e904217c3eeceecd",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "selected_for_complete_adoption",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "eval",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/eval.md",
+      "blobSha": "3dae34e2ef0cbdd9bafa5ab372da5ea143d48452",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "feature",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/feature.md",
+      "blobSha": "42ca2b572364416a18b2c011a39b289e029095c7",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "hillclimb",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/hillclimb.md",
+      "blobSha": "582555e826675068ceaea08e6134a44ba0ea4511",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "investigation",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/investigation.md",
+      "blobSha": "cd119f04f23e0b7acb3f8cc5ba13ce4ab7aa6c7d",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "selected_for_complete_adoption",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "multi-phase-plan",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "blobSha": "ac92ba53be6498b308b888affb05065fa62c1cec",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "opening-a-pr",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "blobSha": "a5c65a0959d0c37ebd12d5636710c4e0f91fba88",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "orchestrate",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/orchestrate.md",
+      "blobSha": "d5b6d008026ff0177f52e22a6fb4b2edae5c87e2",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "pause-safely",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/pause-safely.md",
+      "blobSha": "9d1c5f8303976fff40de099f7f28185909430c11",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "perf-issue",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/perf-issue.md",
+      "blobSha": "688d483d4d4a6c58efa515558c822e11f621540f",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "prototype",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/prototype.md",
+      "blobSha": "18bedc7e9249d180f9198d5b4b13e3817d41d281",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "refactoring",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/refactoring.md",
+      "blobSha": "ee66cdfbe53ee0cade74ac749e08d076ce775c20",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "runtime-forensics",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "blobSha": "ba659bfe1c4c2f956f3285974bfdc941120f9948",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "selected_for_complete_adoption",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "session-pickup",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/session-pickup.md",
+      "blobSha": "9b2ed06e0ff8b01bf03b7a0d6a4cbb8ba3a46720",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "shipping",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/shipping.md",
+      "blobSha": "0f1d41f189222b991734015926a3b22607e1b92f",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "trace-forensics",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+      "blobSha": "48ed6b2f690215027eda96a1897ed98212bbd07a",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "selected_for_complete_adoption",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "visual-parity",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/visual-parity.md",
+      "blobSha": "248830ec74a593fc22143a842026388f92f1b9f4",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    },
+    {
+      "category": "worktree-cleanup",
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "blobSha": "39c9ef9f368ac63b0e4245503302a4c174e846d6",
+      "classificationCoverageRequired": true,
+      "executionAdoption": "not_adopted",
+      "mappingStatus": "planned",
+      "fallbackRule": "Use an existing applicable authorized workflow; never mislabel an unadopted workflow as a selected implementation."
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "pstack/LICENSE",
+      "blobSha": "6b5400237fdf6545be0b8fae370d6f2fcff8fb25",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/LICENSE",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/LICENSE",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/README.md",
+      "blobSha": "b7cdef8aeb15da88a8f9cdd82904d884552395b7",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/README.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/README.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/SKILL.md",
+      "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/SKILL.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/SKILL.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/how/SKILL.md",
+      "blobSha": "a3a835fa660673903ee0cbc5262b3258bf897d7a",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/how/SKILL.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/how/SKILL.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/why/SKILL.md",
+      "blobSha": "79b526077dd843ea3e907dd5d86e470260efbeda",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/why/SKILL.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/why/SKILL.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/principle-fix-root-causes/SKILL.md",
+      "blobSha": "7e5a419aeec97b4076fa517865013677428a9fa3",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/principle-fix-root-causes/SKILL.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/principle-fix-root-causes/SKILL.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/create-verification-skill/SKILL.md",
+      "blobSha": "f869e26122991252373d5b8f6357e5b9ff195a00",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/create-verification-skill/SKILL.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/create-verification-skill/SKILL.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/maintain-verification-skill/SKILL.md",
+      "blobSha": "a2680b91fead45a0b4963d8c367a854956bea59d",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/maintain-verification-skill/SKILL.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/maintain-verification-skill/SKILL.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "blobSha": "8c5a55a44f5e95bba92f652da0ac87e941c49538",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/autonomous-run.md",
+      "blobSha": "12c3a7d84effcacf3550cb893be67498d7b28a4a",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/autonomous-run.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/autonomous-run.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/autopilot-full.md",
+      "blobSha": "5456b79489978c20ca846d06104e9990bb0b7c44",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/autopilot-full.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/autopilot-full.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/autopilot-stack.md",
+      "blobSha": "810a70fff72ae49a9387b5ea41dcb13f890c83c0",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/autopilot-stack.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/autopilot-stack.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/babysit.md",
+      "blobSha": "73eddb732ad9d4a4c27c16e3cc6c41f78becc3e1",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/babysit.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/babysit.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+      "blobSha": "7deba2c88ebc708a541ad226e904217c3eeceecd",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/bug-fix.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/bug-fix.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/eval.md",
+      "blobSha": "3dae34e2ef0cbdd9bafa5ab372da5ea143d48452",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/eval.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/eval.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/feature.md",
+      "blobSha": "42ca2b572364416a18b2c011a39b289e029095c7",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/feature.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/feature.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/hillclimb.md",
+      "blobSha": "582555e826675068ceaea08e6134a44ba0ea4511",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/hillclimb.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/hillclimb.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/investigation.md",
+      "blobSha": "cd119f04f23e0b7acb3f8cc5ba13ce4ab7aa6c7d",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/investigation.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/investigation.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "blobSha": "ac92ba53be6498b308b888affb05065fa62c1cec",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "blobSha": "a5c65a0959d0c37ebd12d5636710c4e0f91fba88",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/orchestrate.md",
+      "blobSha": "d5b6d008026ff0177f52e22a6fb4b2edae5c87e2",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/orchestrate.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/orchestrate.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/pause-safely.md",
+      "blobSha": "9d1c5f8303976fff40de099f7f28185909430c11",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/pause-safely.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/pause-safely.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/perf-issue.md",
+      "blobSha": "688d483d4d4a6c58efa515558c822e11f621540f",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/perf-issue.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/perf-issue.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/prototype.md",
+      "blobSha": "18bedc7e9249d180f9198d5b4b13e3817d41d281",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/prototype.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/prototype.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/refactoring.md",
+      "blobSha": "ee66cdfbe53ee0cade74ac749e08d076ce775c20",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/refactoring.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/refactoring.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "blobSha": "ba659bfe1c4c2f956f3285974bfdc941120f9948",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/session-pickup.md",
+      "blobSha": "9b2ed06e0ff8b01bf03b7a0d6a4cbb8ba3a46720",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/session-pickup.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/session-pickup.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/shipping.md",
+      "blobSha": "0f1d41f189222b991734015926a3b22607e1b92f",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/shipping.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/shipping.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+      "blobSha": "48ed6b2f690215027eda96a1897ed98212bbd07a",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/visual-parity.md",
+      "blobSha": "248830ec74a593fc22143a842026388f92f1b9f4",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/visual-parity.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/visual-parity.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "blobSha": "39c9ef9f368ac63b0e4245503302a4c174e846d6",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/create-verification-skill/references/feature-map-example/README.md",
+      "blobSha": "fb64570cfab3bbe672fe80925651933ebd57aa33",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/create-verification-skill/references/feature-map-example/README.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/create-verification-skill/references/feature-map-example/README.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/create-verification-skill/references/feature-map-example/create-note.md",
+      "blobSha": "21357566b69223a503d6780a04fb90ce540eae22",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/create-verification-skill/references/feature-map-example/create-note.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/create-verification-skill/references/feature-map-example/create-note.md",
+      "lockedBodyReviewStatus": "pending"
+    },
+    {
+      "path": "pstack/skills/create-verification-skill/references/feature-map-example/search.md",
+      "blobSha": "1f8e57d3aaf19cf27a9464d55fa72e46bcbc8b0f",
+      "pinnedUrl": "https://github.com/cursor/plugins/blob/b42effe0aa50f59c693d7e2924714e015e00bf7c/pstack/skills/create-verification-skill/references/feature-map-example/search.md",
+      "currentReferenceUrl": "https://github.com/cursor/plugins/blob/main/pstack/skills/create-verification-skill/references/feature-map-example/search.md",
+      "lockedBodyReviewStatus": "pending"
+    }
+  ],
+  "completionGate": {
+    "requiresAllMandatoryEffectsVerified": true,
+    "missingCoreEffectsAllowed": 0,
+    "unitTestsAloneSufficient": false,
+    "status": "not_run"
+  },
+  "relatedContract": "功能地图与完整验收实施补充.md"
+}

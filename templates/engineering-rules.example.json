@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "1.0.0",
+  "domains": [
+    {
+      "domain": "ui",
+      "applicability": "unknown",
+      "reason": "待项目原文绑定",
+      "sourceRef": "PROJECT_DECISIONS.md"
+    },
+    {
+      "domain": "interaction",
+      "applicability": "unknown",
+      "reason": "待项目原文绑定",
+      "sourceRef": "PROJECT_DECISIONS.md"
+    },
+    {
+      "domain": "errors",
+      "applicability": "unknown",
+      "reason": "待项目原文绑定",
+      "sourceRef": "PROJECT_DECISIONS.md"
+    },
+    {
+      "domain": "logs",
+      "applicability": "unknown",
+      "reason": "待项目原文绑定",
+      "sourceRef": "PROJECT_DECISIONS.md"
+    },
+    {
+      "domain": "permissions",
+      "applicability": "unknown",
+      "reason": "待项目原文绑定",
+      "sourceRef": "PROJECT_DECISIONS.md"
+    },
+    {
+      "domain": "data",
+      "applicability": "unknown",
+      "reason": "待项目原文绑定",
+      "sourceRef": "PROJECT_DECISIONS.md"
+    },
+    {
+      "domain": "architecture",
+      "applicability": "unknown",
+      "reason": "待项目原文绑定",
+      "sourceRef": "PROJECT_DECISIONS.md"
+    },
+    {
+      "domain": "external",
+      "applicability": "unknown",
+      "reason": "待项目原文绑定",
+      "sourceRef": "PROJECT_DECISIONS.md"
+    }
+  ],
+  "bindings": []
+}

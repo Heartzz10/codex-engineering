@@ -1,0 +1,3 @@
+* text=auto eol=lf
+upstream/pstack/sources/** -text
+vendor/ui-tools/** -text

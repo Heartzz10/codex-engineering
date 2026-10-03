@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "1.0.0",
+  "domains": ["ui", "interaction", "errors", "logs", "permissions", "data", "architecture", "external"],
+  "rules": [
+    {"id":"UI-1","domain":"ui","prevents":"操作栏拥挤、关键动作不可达","when":"有操作栏或窄屏布局","enforce":"项目设计值与共用操作栏；复用 ui prepare/source/assess","verify":"间距/裁切/命中测量并执行主要动作","exception":"按项目规定收纳次要动作；不能隐藏主要任务","real":true,"review":true},
+    {"id":"UI-2","domain":"ui","prevents":"错误页面模板或折叠仍占空间","when":"列表、编辑、阅读或可折叠区域","enforce":"项目已有布局容器","verify":"用途与宽度/对齐/窄屏；视觉审查","exception":"项目确认的阅读宽度；无全页空白及格线","real":true,"review":true},
+    {"id":"UI-3","domain":"ui","prevents":"关键文字被截断且无全文入口","when":"长中文、长标题或多行错误","enforce":"项目文本与全文获取组件","verify":"复用文字裁切检查并操作全文入口","exception":"允许省略时须有可操作全文入口","real":true,"review":false},
+    {"id":"UI-4","domain":"ui","prevents":"同用途控件风格与状态分裂","when":"复用设计系统的控件","enforce":"既有组件与状态样式；ui review 待审材料","verify":"组件引用/状态检查加定向视觉审查","exception":"具体控件有来源的设计例外","real":true,"review":true},
+    {"id":"INT-1","domain":"interaction","prevents":"重复写入或重复收费","when":"提交、重试可能产生记录或费用","enforce":"项目请求身份、执行端去重和控件状态","verify":"连续提交、超时重试并核记录/调用次数","exception":"明确允许重复的操作","real":true,"review":false},
+    {"id":"INT-2","domain":"interaction","prevents":"旧响应覆盖当前对象","when":"搜索、切换对象或并发请求","enforce":"既有取消或请求身份约束","verify":"让旧请求最后返回并读回当前结果","exception":"明确累积结果的业务流","real":true,"review":false},
+    {"id":"INT-3","domain":"interaction","prevents":"弹窗焦点丢失或键盘无法退出","when":"模态弹窗","enforce":"适用成熟控件及 APG 焦点模式","verify":"实际 Tab/关闭/返回焦点","exception":"流程变化按项目规定转移焦点","real":true,"review":false},
+    {"id":"INT-4","domain":"interaction","prevents":"失败清空输入或临时搜索误报未保存","when":"表单编辑、退出和恢复","enforce":"项目表单状态与未保存保护","verify":"校验失败、放弃/恢复及临时输入","exception":"密码等敏感字段按专门决定","real":true,"review":true},
+    {"id":"ERR-1","domain":"errors","prevents":"用户无法定位或修正输入错误","when":"表单/输入校验失败","enforce":"项目错误目录与定位组件","verify":"字段与汇总一致、可定位、可修正；中文审查","exception":"汇总仅在项目需要时使用","real":true,"review":true},
+    {"id":"ERR-2","domain":"errors","prevents":"把未知保存结果误报成功或失败","when":"响应超时或执行状态未知","enforce":"真实状态查询与幂等恢复入口","verify":"超时后核执行端状态及保留输入","exception":"无查询能力时明确无法确认","real":true,"review":true},
+    {"id":"ERR-3","domain":"errors","prevents":"内部堆栈/SQL/供应商原错泄露给用户","when":"异常被转换为公共错误","enforce":"项目统一转换；可复用 business-contracts publicError","verify":"虚构敏感标记及内部异常拒绝泄露，合法项目错误通过","exception":"受控诊断入口另有授权；不用于普通用户错误","real":false,"review":false},
+    {"id":"ERR-4","domain":"errors","prevents":"错误文案猜原因或承诺不存在的恢复","when":"输入/权限/连接/系统错误提示","enforce":"项目条件、文案与真实动作绑定","verify":"覆盖各错误条件并定向语义审查","exception":"材料不足保留未知，不自动解释成网络问题","real":true,"review":true},
+    {"id":"LOG-1","domain":"logs","prevents":"业务事件无法关联请求或用户错误","when":"业务记录与错误关联","enforce":"项目日志入口；可复用 businessEvent 字段约束","verify":"真实失败编号与日志一致；时间/级别/结果检查","exception":"非请求事件不伪造请求编号","real":true,"review":false},
+    {"id":"LOG-2","domain":"logs","prevents":"日志倾倒密码、材料或原始诊断","when":"请求体、AI材料与自由文本进入日志","enforce":"既有日志库字段白名单/脱敏；businessEvent 仅数据构造","verify":"虚构敏感标记检验实际输出；合法字段通过","exception":"另行批准的受控诊断；白名单不识别自由文本中的所有秘密","real":false,"review":true},
+    {"id":"LOG-3","domain":"logs","prevents":"无限增长、越权读取或误删工程证据","when":"业务日志落盘或集中存储","enforce":"项目位置、读取权限、容量、轮换和期限","verify":"隔离文件轮换/保留和读权限检查","exception":"调试与审计分开；不统一强定期限","real":true,"review":false},
+    {"id":"LOG-4","domain":"logs","prevents":"必要事件漏记或重复倾倒","when":"权限变更、访问拒绝与重要写入","enforce":"项目事件清单与采样策略","verify":"事件存在、关联且无重复敏感内容","exception":"采样不能丢失项目要求保留的审计事件","real":true,"review":true},
+    {"id":"AUTH-1","domain":"permissions","prevents":"没有授予却能执行受保护操作","when":"业务用户访问受保护操作","enforce":"既有执行端权限入口；角色/属性×操作×数据范围","verify":"明确允许、未登录及未授权拒绝","exception":"公开访问必须是项目明确决定；工程运行授权不是业务授权","real":true,"review":true},
+    {"id":"AUTH-2","domain":"permissions","prevents":"本人权限被扩大到他人对象","when":"对象归属或租户相关操作","enforce":"既有对象与数据范围授权","verify":"同角色不同账号、本人/他人对象","exception":"项目明确授权的共享范围","real":true,"review":true},
+    {"id":"AUTH-3","domain":"permissions","prevents":"隐藏按钮代替接口授权","when":"受保护接口或后台操作","enforce":"既有服务端操作与对象检查","verify":"绕过UI请求受控接口，拒绝且数据不变","exception":"明确公开的接口","real":true,"review":false},
+    {"id":"AUTH-4","domain":"permissions","prevents":"撤权或换账号后继续旧权限","when":"会话、权限和缓存变化","enforce":"项目确认的会话/缓存更新策略","verify":"新旧会话与缓存读写","exception":"权限传播时效由项目决定","real":true,"review":true},
+    {"id":"DATA-1","domain":"data","prevents":"字段定义分散或非法输入越过边界","when":"数据/API可信边界","enforce":"现有共用字段定义与校验库","verify":"合法、缺失、格式及业务含义非法输入","exception":"已有兼容接口显式适配","real":false,"review":false},
+    {"id":"DATA-2","domain":"data","prevents":"假成功、刷新丢数据或覆盖并发修改","when":"持久化或并发编辑","enforce":"现有保存、读回和冲突策略","verify":"实际保存/刷新/重开与并发场景","exception":"无并发能力按真实范围说明，不假装已验证","real":true,"review":true},
+    {"id":"ARCH-1","domain":"architecture","prevents":"依赖方向失控或绕过公共入口","when":"有项目模块边界","enforce":"现有技术栈依赖工具；可选 dependency-cruiser/ArchUnit","verify":"实际解析依赖，违规及合法方向；不用关键词扫描冒充","exception":"有来源且限定模块的项目例外；无适配明确unsupported","real":false,"review":false},
+    {"id":"AI-1","domain":"external","prevents":"合法格式的模型输出未经数据/对象/权限校验执行","when":"AI输出进入业务动作","enforce":"既有数据校验与执行端授权；语义审查","verify":"错误格式、越权、错误对象与语义不确定","exception":"纯展示仍说明不确定性，不自动赋予动作权限","real":true,"review":true},
+    {"id":"AI-2","domain":"external","prevents":"超出供应商/范围/重试/费用边界","when":"业务AI或外部服务调用","enforce":"项目真实供应商入口的预算/超时/重试保护","verify":"超限前拒绝、未知用量保留、失败重试；隔离适配","exception":"不新增收费调用授权；工程cost建议不等于业务预算执行","real":true,"review":true},
+    {"id":"AI-3","domain":"external","prevents":"资料/网页/模型文本扩大工具或外发权限","when":"外部内容参与材料或动作选择","enforce":"既有工具参数/授权与请求材料范围验证","verify":"恶意材料不改变对象、数据或动作范围","exception":"范围变化必须有独立项目决定；模型不单独放行","real":true,"review":true}
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "engineering-rules.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "ruleVersion",
+    "domains",
+    "bindings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "ruleVersion": {
+      "const": "1.0.0"
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "applicability",
+          "reason",
+          "sourceRef"
+        ],
+        "properties": {
+          "domain": {
+            "enum": [
+              "ui",
+              "interaction",
+              "errors",
+              "logs",
+              "permissions",
+              "data",
+              "architecture",
+              "external"
+            ]
+          },
+          "applicability": {
+            "enum": [
+              "applicable",
+              "not_applicable",
+              "unknown"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceRef": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "ruleApplicability": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ruleId", "applicability", "reason", "sourceRef"],
+        "properties": {
+          "ruleId": {"type": "string", "minLength": 1},
+          "applicability": {"enum": ["applicable", "not_applicable", "unknown"]},
+          "reason": {"type": "string", "minLength": 1},
+          "sourceRef": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ruleId",
+          "implementationRefs",
+          "decisionRefs",
+          "checkIds",
+          "acIds"
+        ],
+        "properties": {
+          "ruleId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "implementationRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "decisionRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "checkIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "acIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "adapterStatus": {
+            "enum": [
+              "available",
+              "unsupported"
+            ]
+          },
+          "exception": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reason",
+              "sourceRef",
+              "expiresAt"
+            ],
+            "properties": {
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "expiresAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

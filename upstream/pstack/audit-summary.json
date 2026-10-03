@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "pinnedCommit": "b42effe0aa50f59c693d7e2924714e015e00bf7c",
+  "sourceFilesVerified": 127,
+  "frozenInventoryHashesVerified": 34,
+  "routeCategories": 23,
+  "selectedExecutionPlaybooks": 4,
+  "notAdoptedExecutionPlaybooks": 19,
+  "effectRows": 2526,
+  "mandatorySelectedRows": 1280,
+  "conditionalMandatoryRows": 1028,
+  "contextOrExampleRows": 218,
+  "countingRule": "Source clauses are traceability units, not separate test jobs or a completion percentage. Group acceptance by workflow behavior and applicable branch; preserve every mandatory clause.",
+  "effectRowsByScope": {
+    "applicable_source_adapter": 423,
+    "conditional_dependency": 1028,
+    "selected_behavior": 984,
+    "structural_example": 91
+  },
+  "sourceLinesAccountedFor": 2604,
+  "allEffectStatuses": "planned",
+  "runtimeEffectEvidenceCount": 0,
+  "sourceAuditStatus": "complete",
+  "behaviorAdoptionStatus": "planned"
+}

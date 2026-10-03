@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "launch": { "ref": "project-doc:launch-existing-test-instance", "readySignal": "documented application ready response" },
+  "doctor": { "ref": "project-doc:readonly-health-and-identity", "readOnly": true },
+  "drive": { "ref": "project-doc:existing-browser-and-cli-drivers", "entrypointIds": ["web", "cli"] },
+  "evidence": { "ref": "project-doc:immutable-receipt-capture" },
+  "cleanup": { "ref": "project-doc:authorized-instance-cleanup", "preservesEvidence": true },
+  "isolation": { "instanceRef": "project-doc:isolated-test-instance", "dataScopeRef": "project-doc:authorized-test-data", "sessionExclusive": true },
+  "sourceReview": { "ref": "project-doc:all-user-surface-source-inventory", "inputs": ["src"] }
+}

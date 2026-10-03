@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品方案评审"
+  short_description: "接收方案文件，结合 Jev 和十三个维度评估个人本地产品的合理性"
+  default_prompt: "使用 $review-product-plan 评审我提供的方案文件，结合 Jev 和十三个维度给出有出处的结论与改进建议。"

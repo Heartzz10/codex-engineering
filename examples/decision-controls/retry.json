@@ -1,0 +1,4 @@
+{
+  "attempts": [ { "fingerprint": "fixture-unchanged", "status": "check_failed", "evidenceRefs": ["fixture:receipt-1"] } ],
+  "nextAttempt": { "fingerprint": "fixture-unchanged", "repeatReason": "try again" }
+}

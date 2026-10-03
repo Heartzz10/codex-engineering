@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "fixture_note": "从首轮人工合成材料回执复制的便携解析夹具；provider_response_fixture不是新在线证明，没有本机路径或凭据。",
+  "evidence_kind": "provider_response_fixture",
+  "model_requested": "jev-1.13.0",
+  "standard_version": "engineering-judgments-1.0.0",
+  "standard_sha256": "4a3b6698c59640889c0a7a72f9b3d26fc9e60f675a6fec5eb80adf1e44ddbbc8",
+  "request_sha256": "72feba613898854abaa89612200b324b1c4f971ff33320978e21dd4f33ae4649",
+  "status": "completed",
+  "started_at": "2026-09-26T09:12:02.289Z",
+  "finished_at": "2026-09-26T09:12:09.459Z",
+  "attempts": 18,
+  "cache_hits": 0,
+  "uncertain_charge": false,
+  "estimated_cost_usd": 0.0007549500000000001,
+  "usage": {
+    "input_tokens": 17975,
+    "output_tokens": 931
+  },
+  "local_results": [],
+  "results": [
+    {
+      "judgment_id": "REQ-C1",
+      "kind": "requirement_fidelity",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "REQ-C1": {
+            "type": "choice",
+            "choice": "supported",
+            "confidence": 0.79,
+            "probabilities": {
+              "supported": 0.84,
+              "no_match": 0.01,
+              "unsupported": 0.02,
+              "insufficient": 0.13
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 941,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "REQ-H1",
+      "kind": "requirement_fidelity",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "REQ-H1": {
+            "type": "choice",
+            "choice": "unsupported",
+            "confidence": 1,
+            "probabilities": {
+              "supported": 0,
+              "no_match": 0,
+              "unsupported": 1,
+              "insufficient": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 953,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "REQ-H2",
+      "kind": "requirement_fidelity",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "REQ-H2": {
+            "type": "choice",
+            "choice": "insufficient",
+            "confidence": 0.91,
+            "probabilities": {
+              "supported": 0,
+              "unsupported": 0.06,
+              "no_match": 0,
+              "insufficient": 0.9400000000000001
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 961,
+          "output_tokens": 54
+        }
+      }
+    },
+    {
+      "judgment_id": "CHG-C1",
+      "kind": "change_impact",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "CHG-C1": {
+            "type": "choice",
+            "choice": "supported",
+            "confidence": 0.9,
+            "probabilities": {
+              "unsupported": 0.01,
+              "no_match": 0,
+              "insufficient": 0.07,
+              "supported": 0.92
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 996,
+          "output_tokens": 52
+        }
+      }
+    },
+    {
+      "judgment_id": "CHG-H1",
+      "kind": "change_impact",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "CHG-H1": {
+            "type": "choice",
+            "choice": "unsupported",
+            "confidence": 1,
+            "probabilities": {
+              "supported": 0,
+              "insufficient": 0,
+              "no_match": 0,
+              "unsupported": 1
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 984,
+          "output_tokens": 52
+        }
+      }
+    },
+    {
+      "judgment_id": "CHG-H2",
+      "kind": "change_impact",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "CHG-H2": {
+            "type": "choice",
+            "choice": "unsupported",
+            "confidence": 0.4,
+            "probabilities": {
+              "no_match": 0,
+              "insufficient": 0.45,
+              "unsupported": 0.55,
+              "supported": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 974,
+          "output_tokens": 52
+        }
+      }
+    },
+    {
+      "judgment_id": "ISS-C1",
+      "kind": "issue_duplicate",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "ISS-C1": {
+            "type": "choice",
+            "choice": "supported",
+            "confidence": 0.98,
+            "probabilities": {
+              "insufficient": 0.01,
+              "no_match": 0,
+              "unsupported": 0,
+              "supported": 0.99
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1023,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "ISS-H1",
+      "kind": "issue_duplicate",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "ISS-H1": {
+            "type": "choice",
+            "choice": "unsupported",
+            "confidence": 0.99,
+            "probabilities": {
+              "supported": 0,
+              "unsupported": 1,
+              "no_match": 0,
+              "insufficient": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1003,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "ISS-H2",
+      "kind": "issue_duplicate",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "ISS-H2": {
+            "type": "choice",
+            "choice": "insufficient",
+            "confidence": 0.51,
+            "probabilities": {
+              "insufficient": 0.64,
+              "no_match": 0,
+              "unsupported": 0.21,
+              "supported": 0.15
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 983,
+          "output_tokens": 54
+        }
+      }
+    },
+    {
+      "judgment_id": "QA-C1",
+      "kind": "qa_coverage",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "QA-C1": {
+            "type": "choice",
+            "choice": "supported",
+            "confidence": 0.83,
+            "probabilities": {
+              "supported": 0.87,
+              "no_match": 0.01,
+              "unsupported": 0.03,
+              "insufficient": 0.09
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1003,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "QA-H1",
+      "kind": "qa_coverage",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "QA-H1": {
+            "type": "choice",
+            "choice": "unsupported",
+            "confidence": 1,
+            "probabilities": {
+              "unsupported": 1,
+              "no_match": 0,
+              "insufficient": 0,
+              "supported": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 986,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "QA-H2",
+      "kind": "qa_coverage",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "QA-H2": {
+            "type": "choice",
+            "choice": "unsupported",
+            "confidence": 0.95,
+            "probabilities": {
+              "unsupported": 0.97,
+              "insufficient": 0.03,
+              "no_match": 0,
+              "supported": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1009,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "DEL-C1",
+      "kind": "delivery_fidelity",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "DEL-C1": {
+            "type": "choice",
+            "choice": "supported",
+            "confidence": 0.85,
+            "probabilities": {
+              "no_match": 0.02,
+              "supported": 0.89,
+              "insufficient": 0.07,
+              "unsupported": 0.02
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 984,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "DEL-H1",
+      "kind": "delivery_fidelity",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "DEL-H1": {
+            "type": "choice",
+            "choice": "unsupported",
+            "confidence": 1,
+            "probabilities": {
+              "insufficient": 0,
+              "unsupported": 1,
+              "no_match": 0,
+              "supported": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 969,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "DEL-H2",
+      "kind": "delivery_fidelity",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "DEL-H2": {
+            "type": "choice",
+            "choice": "unsupported",
+            "confidence": 0.99,
+            "probabilities": {
+              "unsupported": 0.99,
+              "supported": 0,
+              "insufficient": 0.01,
+              "no_match": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 992,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "MET-C1",
+      "kind": "method_selection",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "MET-C1": {
+            "type": "choice",
+            "choice": "runtime",
+            "confidence": 1,
+            "probabilities": {
+              "no_match": 0,
+              "insufficient": 0,
+              "runtime": 1,
+              "design": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1099,
+          "output_tokens": 51
+        }
+      }
+    },
+    {
+      "judgment_id": "MET-H1",
+      "kind": "method_selection",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "MET-H1": {
+            "type": "choice",
+            "choice": "no_match",
+            "confidence": 0.99,
+            "probabilities": {
+              "cloud": 0,
+              "remote": 0,
+              "insufficient": 0.01,
+              "no_match": 0.99
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1059,
+          "output_tokens": 52
+        }
+      }
+    },
+    {
+      "judgment_id": "MET-H2",
+      "kind": "method_selection",
+      "origin": "live",
+      "raw_response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "MET-H2": {
+            "type": "choice",
+            "choice": "insufficient",
+            "confidence": 0.99,
+            "probabilities": {
+              "insufficient": 1,
+              "no_match": 0,
+              "runtime": 0,
+              "design": 0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1056,
+          "output_tokens": 54
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "version": "0.5.14",
+  "resources": [
+    {
+      "id": "standard.requirements",
+      "kind": "standard",
+      "version": "0.5.14",
+      "taskKinds": [
+        "discovery"
+      ],
+      "path": "standards/requirements.md"
+    },
+    {
+      "id": "standard.ui",
+      "kind": "standard",
+      "version": "0.5.14",
+      "taskKinds": [
+        "implementation",
+        "verification",
+        "debugging"
+      ],
+      "path": "standards/ui.md",
+      "requiresUiChange": true
+    },
+    {
+      "id": "standard.ui-design",
+      "kind": "standard",
+      "version": "0.5.14",
+      "taskKinds": [
+        "discovery",
+        "implementation",
+        "debugging",
+        "verification"
+      ],
+      "path": "skills/codex-engineering/references/ui-design.md",
+      "requiresUiChange": true
+    },
+    {
+      "id": "standard.engineering",
+      "kind": "standard",
+      "version": "0.5.14",
+      "taskKinds": [
+        "implementation",
+        "debugging"
+      ],
+      "path": "standards/engineering.md"
+    },
+    {
+      "id": "standard.verification",
+      "kind": "standard",
+      "version": "0.5.14",
+      "taskKinds": [
+        "verification",
+        "debugging"
+      ],
+      "path": "standards/verification.md"
+    }
+  ],
+  "source": "locally authored; see THIRD_PARTY_NOTICES.md",
+  "status": "local-tested"
+}

@@ -1,0 +1,500 @@
+{
+  "schemaVersion": 1,
+  "pinnedCommit": "b42effe0aa50f59c693d7e2924714e015e00bf7c",
+  "categories": [
+    {
+      "categoryId": "investigation",
+      "name": "Investigation",
+      "trigger": "Read-only question: how does X work, why was Y built this way, are we sure about Z, should we do X or Y.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 121,
+        "lineEnd": 121,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/investigation.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "adopted",
+      "executionStatus": "planned",
+      "localRoute": "investigation",
+      "fallback": null,
+      "acceptanceExample": "解释现有导出功能怎样工作，只调查，不修改代码。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "bug-fix",
+      "name": "Bug fix",
+      "trigger": "A reported defect to reproduce, root-cause, and fix with runtime evidence.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 122,
+        "lineEnd": 122,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "adopted",
+      "executionStatus": "planned",
+      "localRoute": "bug-fix",
+      "fallback": null,
+      "acceptanceExample": "保存后重启内容丢失，请复现并修复。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "perf-issue",
+      "name": "Perf issue",
+      "trigger": "A measured slowness to trace and improve against a baseline.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 123,
+        "lineEnd": 123,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/perf-issue.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "这个查询耗时已测为8秒，请优化并比较基线。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "hillclimb",
+      "name": "Hillclimb",
+      "trigger": "Sustained, scientific improvement of one metric against a target: loop hypotheses with before/after measurement, a decision log, and one commit per accepted win. Distinct from Perf issue, which is a one-off fix.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 124,
+        "lineEnd": 124,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/hillclimb.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "持续迭代提高吞吐量直到达到目标，每次测量并记决策。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "runtime-forensics",
+      "name": "Runtime forensics",
+      "trigger": "Diagnose a runtime symptom (leak, idle-CPU spin, glitch) from live instrumentation. The deliverable is a diagnosis, not a fix.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 125,
+        "lineEnd": 125,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "adopted",
+      "executionStatus": "planned",
+      "localRoute": "runtime-forensics",
+      "fallback": null,
+      "acceptanceExample": "当前进程空闲CPU持续很高，请采集现场并诊断，先不修复。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "trace-forensics",
+      "name": "Trace forensics",
+      "trigger": "Diagnose a captured profiling artifact (cpuprofile, trace, spindump, heap snapshot) handed to you after the fact. The deliverable is a diagnosis, not a fix.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 126,
+        "lineEnd": 126,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "adopted",
+      "executionStatus": "planned",
+      "localRoute": "trace-forensics",
+      "fallback": null,
+      "acceptanceExample": "分析这份已有cpuprofile，给出诊断，不重新采集。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "feature",
+      "name": "Feature",
+      "trigger": "New or changed behavior, built from a named data shape.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 127,
+        "lineEnd": 127,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/feature.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "增加用户可见的导出功能。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "refactoring",
+      "name": "Refactoring",
+      "trigger": "A behavior-preserving change to structure or shape (rename, extract, inline, dedupe, move).",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 128,
+        "lineEnd": 128,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/refactoring.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "保持行为不变，将重复解析结构合并。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "prototype",
+      "name": "Prototype",
+      "trigger": "A throwaway sketch to make a design or behavioral decision cheaply, or to settle an empirical fork by observing it instead of asking the human (\"prototype\", \"mock it up\", \"try this layout\", \"sketch it to decide\").",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 129,
+        "lineEnd": 129,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/prototype.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "做个可抛弃原型比较两种布局。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "visual-parity",
+      "name": "Visual parity",
+      "trigger": "Pixel-exact UI equivalence: matching two implementations or migrating a styling system.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 130,
+        "lineEnd": 130,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/visual-parity.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "迁移样式时保持像素一致。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "authoring-a-skill",
+      "name": "Authoring or modifying a skill",
+      "trigger": "Writing or editing a SKILL.md.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 131,
+        "lineEnd": 131,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "修改现有SKILL.md触发条件。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "eval",
+      "name": "Eval",
+      "trigger": "Testing how a skill, structure, or prompt change affects agent behavior before promoting it.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 132,
+        "lineEnd": 132,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/eval.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "测试提示词变更对代理行为的影响。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "babysit",
+      "name": "Babysit",
+      "trigger": "Driving a PR or a stack to merge-ready: conflicts, review threads, CI.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 133,
+        "lineEnd": 133,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/babysit.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "检查PR尚有何问题并处理CI与审查。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "shipping",
+      "name": "Shipping",
+      "trigger": "The half after Babysit. Independently verifying a green stack, then landing the contiguous verified run bottom-up through `gh` by default or Origin when its CLI is available.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 134,
+        "lineEnd": 134,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/shipping.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "独立检查绿色PR栈并合并。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "autonomous-run",
+      "name": "Autonomous run",
+      "trigger": "A long task to drive to completion without stopping (\"run until done\", \"/loop until X\").",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 135,
+        "lineEnd": 135,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/autonomous-run.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "持续执行这一个任务直到完成条件满足。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "orchestrate",
+      "name": "Orchestrate",
+      "trigger": "A standing project handed to one coordinator chat: multi-day, many stacked PRs, dozens to hundreds of subagents, minimal human turns (\"run this whole project\", \"own this migration until it lands\"). Distinct from Autonomous run, which drives one task to a predicate. Work one agent could finish inside the session's budget routes there, not here, however program-shaped the phrasing sounds.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 136,
+        "lineEnd": 136,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/orchestrate.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "协调一个多日多PR项目。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "autopilot-full",
+      "name": "Autopilot-full",
+      "trigger": "A queue of independent PRs run to merged with full autonomy. One owner per PR carries build through merge, and the root swarm-verifies each PR before its owner merges (\"autopilot this queue\", \"full autopilot\", one-owner-per-PR programs).",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 137,
+        "lineEnd": 137,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/autopilot-full.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "自主完成这批独立PR直到合并。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "autopilot-stack",
+      "name": "Autopilot-stack",
+      "trigger": "A queue of changes built and verified with full autonomy, delivered as one linear reviewed base-branch stack the operator lands (\"autopilot-stack\", \"stack them, don't ship\", \"build the stack, I'll land it\").",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 138,
+        "lineEnd": 138,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/autopilot-stack.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "构建线性PR栈，我来合并。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "session-pickup",
+      "name": "Session pickup",
+      "trigger": "Resuming or taking over a prior agent's in-flight work from a transcript, cloud-agent URL, or pushed branch.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 139,
+        "lineEnd": 139,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/session-pickup.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "接手这个尚未完成的先前任务。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "pause-safely",
+      "name": "Pause safely",
+      "trigger": "Suspending in-flight work cleanly so it can be resumed, on an explicit pause, going offline, a Cursor restart, or imminent context compaction. The complement to Session pickup. Full steps:",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 140,
+        "lineEnd": 140,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/pause-safely.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "安全暂停当前任务并保存恢复信息。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "multi-phase-plan",
+      "name": "Multi-phase or multi-PR plan",
+      "trigger": "Work that spans phases or stacked PRs.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 141,
+        "lineEnd": 141,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "为跨阶段的多PR变更制定实施计划。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "worktree-cleanup",
+      "name": "Worktree and simulator cleanup",
+      "trigger": "Reclaiming local disk by pruning merged or abandoned git worktrees and stale iOS simulators (\"what's using my disk\", \"clean up worktrees\", \"prune safe-to-prune worktrees\", \"free up space\", \"delete old simulators\").",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 142,
+        "lineEnd": 142,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "检查并清理已经合并的工作树回收磁盘。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    },
+    {
+      "categoryId": "opening-a-pr",
+      "name": "Opening a PR",
+      "trigger": "Invoked at the end of every other playbook.",
+      "sourceRef": {
+        "path": "pstack/skills/poteto-mode/SKILL.md",
+        "lineStart": 143,
+        "lineEnd": 143,
+        "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d"
+      },
+      "playbook": "pstack/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "classificationStatus": "planned",
+      "executionAdoption": "not_adopted",
+      "executionStatus": "not_adopted",
+      "localRoute": null,
+      "fallback": "Use the existing applicable Codex capability under project authorization; do not silently route to bug-fix or forensics.",
+      "acceptanceExample": "为当前已验证变更开PR。",
+      "acceptanceCaseIds": [
+        "PS-04"
+      ]
+    }
+  ],
+  "ambiguityCases": [
+    {
+      "request": "看一下这个问题",
+      "expected": "Use context to determine investigation versus repair; preserve uncertainty when intent is missing."
+    },
+    {
+      "request": "这里有trace，但想知道当前是否还复现",
+      "expected": "Separate existing-artifact analysis from explicitly requested live capture; do not conflate their evidence."
+    }
+  ],
+  "status": "planned"
+}

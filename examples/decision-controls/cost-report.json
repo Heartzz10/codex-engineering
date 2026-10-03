@@ -1,0 +1,10 @@
+{
+  "fixture": true,
+  "attempts": [
+    { "id": "fixture-attempt-1", "retryOf": null, "invocationReceipt": { "sourceRef": "fixture:call-1", "model": "gpt-6-luna", "effort": "low" }, "outcome": "failed", "cost": { "amount": 1, "currency": "CNY", "sourceRef": "fixture:bill-1" }, "minutes": { "value": 2, "sourceRef": "fixture:timer-1" } },
+    { "id": "fixture-attempt-2", "retryOf": "fixture-attempt-1", "invocationReceipt": { "sourceRef": "fixture:call-2", "model": "gpt-6-sol", "effort": "medium" }, "outcome": "passed", "cost": { "amount": 3, "currency": "CNY", "sourceRef": "fixture:bill-2" }, "minutes": { "value": 1, "sourceRef": "fixture:timer-2" } }
+  ],
+  "checks": [ { "sourceRef": "fixture:check-1", "cost": { "amount": 0, "currency": "CNY", "sourceRef": "fixture:bill-3" }, "minutes": { "value": 2, "sourceRef": "fixture:timer-3" } } ],
+  "humanWork": [ { "sourceRef": "fixture:human-1", "cost": null, "minutes": { "value": 5, "sourceRef": "fixture:timer-4" } } ],
+  "qualification": { "status": "qualified", "evidenceRefs": ["fixture:acceptance-1"] }
+}

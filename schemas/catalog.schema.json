@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "version",
+    "resources"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "version": {
+      "const": "0.5.14"
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "version",
+          "taskKinds",
+          "path"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "version": {
+            "const": "0.5.14"
+          },
+          "kind": {
+            "enum": [
+              "standard",
+              "skill",
+              "tool"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "taskKinds": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "consultation",
+                "discovery",
+                "implementation",
+                "debugging",
+                "verification"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

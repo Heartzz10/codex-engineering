@@ -1,0 +1,14 @@
+{
+  "recordedBy": "agent:project-owner",
+  "sourceRef": "task:local_excerpt/2026-09-28/initial-scope",
+  "requirements": [
+    { "key": "note-save", "intent": "成员保存一条笔记并读回", "decision": "accepted", "decisionRef": "task:local_excerpt/2026-09-28/initial-scope", "schedule": "current", "featureIds": ["@notes"], "openQuestions": [] }
+  ],
+  "features": [
+    { "key": "notes", "title": "笔记", "user": "成员", "scenario": "记录想法", "goal": "保存后可读回相同正文", "scope": ["保存笔记"], "exclusions": ["跨设备同步"], "humanAutomation": { "human": "输入正文", "automatic": "持久化并显示结果" }, "requirementIds": ["@note-save"], "dependencyIds": [], "entrypointIds": ["cli"], "implementationRefs": [], "acceptanceCriteria": ["@save-readback"], "lifecycle": "active", "deliveryStatus": "planned" }
+  ],
+  "acceptanceCriteria": [
+    { "key": "save-readback", "featureId": "@notes", "requirementIds": ["@note-save"], "preconditions": ["项目已启动"], "actions": [{ "type": "invoke", "description": "输入正文并保存" }], "expected": "读回正文与输入一致", "verificationMethod": "cli", "effects": { "writes": "test-artifacts", "network": false, "paid": false }, "requiredEvidenceTypes": ["execution"], "dependencyRefs": [], "implementationRefs": [], "requiredTargets": [{ "targetId": "save-cli", "entrypointId": "cli", "roleRef": "member", "scenario": "normal", "environmentRef": "isolated-local", "dataScopeRef": "test-data" }] }
+  ],
+  "change": { "type": "feature", "reason": "初始功能登记", "decision": "accepted", "decisionRef": "task:local_excerpt/2026-09-28/initial-scope", "requirementIds": ["@note-save"], "featureIds": ["@notes"], "acIds": ["@save-readback"], "implementationRefs": [], "migrationImpact": "none", "recoveryImpact": "none" }
+}

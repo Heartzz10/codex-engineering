@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "pinnedCommit": "b42effe0aa50f59c693d7e2924714e015e00bf7c",
+  "workflows": {
+    "investigation": {
+      "deliverable": "Cited explanation or recommendation; read-only investigation.",
+      "source": "pstack/skills/poteto-mode/playbooks/investigation.md",
+      "dependencies": [{"id":"how","when":"always"},{"id":"why","when":"motivation, design rationale or history"},{"id":"unslop","when":"reply"}],
+      "steps": [
+        {"id":"intent","action":"State the question and interpretation when ambiguous; inspect existing context before asking.","failure":"Missing facts stay explicit unknowns; do not silently turn investigation into a fix."},
+        {"id":"how","action":"Trace entry points, runtime flow, structures and boundaries. Simple scope takes one pass; complex scope uses 2–4 distinct read-only exploration angles and a synthesis.","failure":"Name any untraced boundary and conflicting findings."},
+        {"id":"why","action":"For motivation, anchor files/lines/symbols/history, search each available evidence category, preserve direct/supported/inferred/speculative/unknown confidence.","failure":"Unavailable connectors and empty searches remain distinct gaps; code behavior does not prove intent."},
+        {"id":"reply","action":"Present cited Overview, Key Concepts, How It Works, Where Things Live, Gotchas as applicable; alternatives get tradeoffs and an actual judgment.","failure":"Do not invent citations or make code changes. Re-route only when repair is authorized."}
+      ]
+    },
+    "bug-fix": {
+      "deliverable": "Minimal evidence-supported repair and original-surface failing-to-passing reproduction.",
+      "source": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+      "dependencies": [{"id":"how","when":"affected subsystem"},{"id":"why","when":"regression history"},{"id":"principle-fix-root-causes","when":"always"},{"id":"architect","when":"fix crosses a function boundary"},{"id":"tdd","when":"cheap, clear local regression path"},{"id":"principle-sequence-verifiable-units","when":"ordered verification and delivery"}],
+      "steps": [
+        {"id":"same-surface-reproduce","action":"Reproduce via the actual affected UI/CLI/API under the relevant role/environment; link FEAT/AC/CHG and preserve raw failing output.","failure":"Tighten or synthesize trigger and instrument until reproduced. Ask user only after driving as far as reachable and naming the specific unreachable surface."},
+        {"id":"hypothesis","action":"Use how and why to seed alternatives; choose the next observation that removes the most uncertainty; collect runtime observations before eliminating each hypothesis.","failure":"Stubborn failures require a changed hypothesis and new evidence, not blind retries."},
+        {"id":"mechanism","action":"Confirm the surviving mechanism with runtime evidence before implementation or design review; inspect sibling patterns and persisted config/cache/locks after restart.","failure":"No speculative guards or guessed fixes may be called confirmed."},
+        {"id":"refuted-hypothesis","action":"When evidence refutes a hypothesis, revert only trial edits it motivated and preserve unrelated user changes.","failure":"Record the scoped revert and resulting state; never reset the whole dirty workspace."},
+        {"id":"design-fix","action":"For cross-function changes, compare at least two grounded designs using applicable architect guidance. Delegate bounded implementation where useful and review the diff.","failure":"Do not retain a design when repeated implementation friction disproves it."},
+        {"id":"regression","action":"For a cheap clear test, capture intended failing-before behavior before fixing; then capture passing-after and nearby regression. Deliver coherent ordered units.","failure":"For expensive/integration-heavy/unclear tests, explain the reason before fixing and use the closest executable reproduction, never weaken intended assertions."},
+        {"id":"same-surface-replay","action":"Replay the original user path with the same surface, environment and role; observe the intended result and relevant persisted state after restart.","failure":"Wrong surface, inconclusive output, unit checks alone or toast alone cannot establish bug absence."},
+        {"id":"reply","action":"Report what broke, root cause, minimal fix, and exact failing/passing output. Follow project delivery rules with a reviewed diff and retained evidence.","failure":"Unverified branches remain gaps; a review-ready protocol is not an executed repair."}
+      ]
+    },
+    "runtime-forensics": {
+      "deliverable": "Diagnosis from new live instrumentation; no product fix unless separately authorized.",
+      "source": "pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "dependencies": [{"id":"principle-guard-the-context-window","when":"large artifacts"}],
+      "steps": [
+        {"id":"capture","action":"Capture a real CPU profile for spin, heap snapshot for leak or UI/CDP trace for visual glitch from the matching live surface.","failure":"Record precise missing capture tool, permission or process; plain logs cannot stand in for all profiler types."},
+        {"id":"reduce","action":"Reduce to hot function, retained-object to GC-root chain or unexpected input-free loop; large artifacts use bounded parsing delegates.","failure":"Retain the raw artifact and exact reduction query; do not infer the runtime cause only from source."},
+        {"id":"mechanism","action":"Prove the mechanism with appropriate reversible live instrumentation or an authorized ephemeral live intervention.","failure":"Unavailable confirmation limits confidence; do not modify persisted product code merely to produce a diagnosis."},
+        {"id":"attribute","action":"Map the finding to source file, symbol and allocator/scheduler line using runtime observations.","failure":"Unresolved symbols remain an explicit attribution gap."},
+        {"id":"reply","action":"Return signal, reduced finding, mechanism proof, source location and raw artifact paths; route to repair or performance work only when requested.","failure":"Do not claim shipped fixes from a diagnostic run."}
+      ]
+    },
+    "trace-forensics": {
+      "deliverable": "Diagnosis from a supplied immutable captured artifact; no automatic live recapture.",
+      "source": "pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+      "dependencies": [{"id":"principle-guard-the-context-window","when":"large artifacts"}],
+      "steps": [
+        {"id":"load","action":"Identify cpuprofile, JSON/gzip trace, spindump or heap format and use an appropriate parser; preserve original bytes.","failure":"Malformed or unsupported artifact remains a precise gap, not permission to silently recapture."},
+        {"id":"queryable","action":"Transform into queryable samples/frames/nodes (for example SQLite) before analysis and retain transformations and queries.","failure":"A narrative summary without a traceable queryable representation is incomplete."},
+        {"id":"reduce","action":"Query time-heavy frames and call tree; leaks follow retainers to GC roots; spindumps identify CPU/blocked thread and wait reason.","failure":"No supporting data means no confirmed hot path or retainer claim."},
+        {"id":"symbols","action":"Map hot frames using artifact symbols to file, symbol and line; resolve available symbol bundles.","failure":"State plainly when the artifact lacks mapping and cannot support attributed diagnosis."},
+        {"id":"paired-capture","action":"When a comparable paired capture exists, compare before/after artifacts.","failure":"Without a pair, use bounded strongest-supported-hypothesis language; never claim confirmed improvement."},
+        {"id":"reply","action":"Return artifact format, finding, source mapping, artifact paths and paired-confirmation status. Fix only on subsequent authorization.","failure":"A supplied trace is a fixed dataset; do not pretend it is a new live observation."}
+      ]
+    }
+  },
+  "fallbacks": {
+    "perf-issue": {"capability":"project profiling and performance checks","operation":"Measure the reported path with the project's existing profiler, change one supported cause, and compare on the same path.","prerequisite":"A measured baseline and an operable project surface.","limit":"No pstack performance playbook is installed; a diagnosis is not an improvement."},
+    "hillclimb": {"capability":"project metric and repeatable experiment","operation":"Fix a metric and target, run bounded before/after experiments with the project's checks, and retain accepted results.","prerequisite":"An agreed metric, repeatable baseline, and bounded experiment budget.","limit":"No pstack hillclimb loop is installed; stop when cost or evidence bounds are reached."},
+    "feature": {"capability":"codex-engineering feature map and project checks","operation":"Read the project's requirement and map, implement the named behavior, then verify its user entry point and update the map.","prerequisite":"An authorized feature and a bound project.","limit":"The route does not authorize a new product scope or claim the feature was built."},
+    "refactoring": {"capability":"project source and regression checks","operation":"Capture behavior at affected entry points, make the smallest structure change, and replay the same checks.","prerequisite":"An identified code boundary and applicable regression path.","limit":"No behavior change is implied by this route."},
+    "prototype": {"capability":"isolated project experiment","operation":"Build a disposable variant for the specific decision and observe the deciding behavior.","prerequisite":"A stated decision and isolated data or workspace.","limit":"A prototype is not a shipped feature."},
+    "visual-parity": {"capability":"existing browser control and image comparison","operation":"Open both matching UI states, capture comparable views, inspect differences, and verify the corrected interaction.","prerequisite":"Both target views and matching viewport, role, and data.","limit":"A screenshot alone does not prove business behavior."},
+    "authoring-a-skill": {"capability":"installed skill-creator guidance","operation":"Read the local skill-creator instructions, edit the requested skill, validate its structure, and try its entry point.","prerequisite":"A named skill and writable skill source.","limit":"Do not present pstack's authoring playbook as adopted."},
+    "eval": {"capability":"project evaluation harness","operation":"Define held-out examples and an acceptance rule, run the existing harness, and inspect its false positives and failures.","prerequisite":"An available evaluation harness and non-leaking held-out cases.","limit":"A judge score does not replace actual project behavior."},
+    "babysit": {"capability":"repository PR and CI tools","operation":"Inspect the actual PR, checks, conflicts, and review comments; address concrete blockers and rerun affected checks.","prerequisite":"An accessible existing PR and authorized repository access.","limit":"No PR is created or merged by classification alone."},
+    "shipping": {"capability":"project release and repository tools","operation":"Review the exact release candidate, verify its gates and rollback, then use the project's authorized release path.","prerequisite":"A concrete candidate, release instructions, and required authorization.","limit":"Green tests alone do not authorize a merge or deployment."},
+    "autonomous-run": {"capability":"current Codex task and project controls","operation":"Continue the bounded authorized task to its completion predicate, recording blockers and tested results.","prerequisite":"A concrete completion predicate and current task context.","limit":"It does not create an unattended pstack execution loop."},
+    "orchestrate": {"capability":"Codex collaboration and project plan","operation":"Split independent project work into owned scopes, coordinate shared state, and integrate verified outputs.","prerequisite":"An explicitly delegated multi-part project and independent work scopes.","limit":"No standing pstack coordinator or automatic multi-day supervision is installed."},
+    "autopilot-full": {"capability":"manual Codex task and repository workflow","operation":"Handle each authorized PR as a separately verified task and use repository tools for any approved integration.","prerequisite":"A real PR queue, repository access, and integration authorization.","limit":"No automatic queue-to-merge service is installed."},
+    "autopilot-stack": {"capability":"manual Git worktree and review workflow","operation":"Build and verify a requested ordered stack in isolated branches, retaining dependency and review evidence.","prerequisite":"A real branch stack, repository access, and an agreed base.","limit":"No automatic stack builder or landing service is installed."},
+    "session-pickup": {"capability":"current handoff and project state","operation":"Read the latest handoff, inspect the actual workspace and evidence, then resume only the unfinished work.","prerequisite":"A prior task or handoff reference.","limit":"Old status text does not override current workspace facts."},
+    "pause-safely": {"capability":"project handoff record","operation":"Record current state, unfinished action, running process and evidence locations before stopping.","prerequisite":"An explicit pause or imminent session interruption.","limit":"Do not mark unfinished work complete."},
+    "multi-phase-plan": {"capability":"current project plan and dependency checks","operation":"Sequence deliverables by dependency, name evidence gates, and implement each authorized phase.","prerequisite":"A task spanning distinct phases or dependent changes.","limit":"A plan is not execution or acceptance."},
+    "worktree-cleanup": {"capability":"Git worktree inspection","operation":"List worktrees, check branch and uncommitted state, and remove only explicitly safe targets through Git.","prerequisite":"A Git repository and an identified cleanup target.","limit":"Never infer an unmerged or dirty worktree is disposable."},
+    "opening-a-pr": {"capability":"repository review tools","operation":"Verify the diff and checks, create the requested PR against the actual repository, and attach its link.","prerequisite":"A Git repository, remote, reviewed diff, and PR authorization.","limit":"A route result does not create a PR or imply a review verdict."}
+  },
+  "metaFallbacks": {
+    "figure-it-out": {"capability":"current Codex planning and project controls","operation":"For a large cross-cutting or genuinely unmatched task, ground the affected systems, define the bounded deliverable and evidence gates, then choose an applicable execution route.","prerequisite":"A concrete large task or a checked absence of matching playbooks.","limit":"This is a local preparatory route, not an adopted pstack figure-it-out execution workflow or permission to reopen an already approved plan."}
+  }
+}

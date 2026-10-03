@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    ".gitignore",
+    "CHANGELOG.md",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "package.json",
+    "package-lock.json",
+    "release-scope.json",
+    "docs/engineering-rule-baseline-bindings-20260927.md",
+    "examples/engineering-rules.json",
+    "examples/project-profile.example.json",
+    "examples/verification-sample/server.mjs",
+    "examples/verification-sample/rule-check.mjs",
+    "examples/verification-sample/engineering-rules.json",
+    "examples/verification-sample/profile.template.json",
+    "examples/verification-sample/driver.mjs",
+    "examples/verification-sample/public/index.html",
+    "examples/verification-sample/ui-driver.mjs",
+    "examples/verification-sample/visual-verify.mjs",
+    "examples/verification-sample/bootstrap.mjs",
+    "examples/verification-sample/GUIDE.md",
+    "examples/verification-sample/import-ui-evidence.mjs",
+    "examples/verification-sample/import-cli-evidence.mjs",
+    "examples/verification-sample/ui-quality-facts.json",
+    "examples/verification-sample/ui-quality.json",
+    "vendor/ui-tools/html-validate.mjs",
+    "vendor/ui-tools/axe.min.js",
+    "vendor/ui-tools/manifest.json",
+    "vendor/ui-tools/licenses/ajv--LICENSE",
+    "vendor/ui-tools/licenses/axe-core--LICENSE",
+    "vendor/ui-tools/licenses/axe-core--LICENSE-3RD-PARTY.txt",
+    "vendor/ui-tools/licenses/fast-deep-equal--LICENSE",
+    "vendor/ui-tools/licenses/fast-uri--LICENSE",
+    "vendor/ui-tools/licenses/html-validate--LICENSE",
+    "vendor/ui-tools/licenses/html-validate__stylish--LICENSE",
+    "vendor/ui-tools/licenses/json-schema-traverse--LICENSE",
+    "vendor/ui-tools/licenses/kleur--license",
+    "vendor/ui-tools/licenses/semver--LICENSE",
+    "vendor/ui-tools/licenses/sidvind__better-ajv-errors--LICENSE",
+    "examples/forensics-sample/run.mjs",
+    "examples/forensics-sample/ui-trace.mjs",
+    "examples/forensics-sample/query-cpu-tree.mjs",
+    "examples/forensics-sample/verify-cli.mjs",
+    "examples/forensics-sample/effect-session.mjs",
+    "examples/engineering-judgments/dataset.json",
+    "examples/engineering-judgments/round2/dataset.json",
+    "examples/engineering-judgments/fixtures/first-round-receipts.json",
+    "examples/engineering-judgments/source.md",
+    "examples/engineering-judgments/packet.json",
+    "examples/engineering-judgments/README.md",
+    "examples/engineering-judgments/project-flow/README.md",
+    "examples/engineering-judgments/project-flow/requirements.md",
+    "examples/engineering-judgments/project-flow/copy.json",
+    "examples/engineering-judgments/project-flow/feature-draft.json",
+    "examples/decision-controls/task.json",
+    "examples/decision-controls/models.json",
+    "examples/decision-controls/cost-report.json",
+    "examples/decision-controls/retry.json",
+    "examples/decision-controls/understanding-bad.json",
+    "examples/decision-controls/understanding-good.json",
+    "examples/decision-controls/README.md",
+    "docs/evals/resource-reuse-cases.md",
+    "tests/helpers/judgment-response.mjs",
+    "examples/engineering-judgments/context-relevance-pilot/run.mjs",
+    "examples/engineering-judgments/context-relevance-pilot/run.test.mjs",
+    "examples/engineering-judgments/context-relevance-pilot/README.md",
+    "examples/engineering-judgments/ui-copy-pilot/compare-jev-codex.mjs",
+    "examples/engineering-judgments/round2/source.md",
+    ".gitattributes",
+    "ARCHITECTURE.md",
+    "PUBLIC-VALIDATION.md",
+    "START-HERE.md",
+    "vendor/ui-tools/licenses/Apache-2.0.txt",
+    "LICENSE",
+    "PUBLIC-MANIFEST.json"
+  ],
+  "directories": [
+    {
+      "path": "catalog",
+      "recursive": false,
+      "strict": true,
+      "suffixes": [
+        ".json"
+      ]
+    },
+    {
+      "path": "policies",
+      "recursive": false,
+      "strict": true,
+      "suffixes": [
+        ".json"
+      ]
+    },
+    {
+      "path": "schemas",
+      "recursive": false,
+      "strict": true,
+      "suffixes": [
+        ".json"
+      ]
+    },
+    {
+      "path": "scripts",
+      "recursive": false,
+      "strict": true,
+      "suffixes": [
+        ".mjs"
+      ]
+    },
+    {
+      "path": "src",
+      "recursive": false,
+      "strict": true,
+      "suffixes": [
+        ".mjs"
+      ]
+    },
+    {
+      "path": "standards",
+      "recursive": true,
+      "strict": true,
+      "suffixes": [
+        ".md"
+      ]
+    },
+    {
+      "path": "templates",
+      "recursive": false,
+      "strict": true,
+      "suffixes": [
+        ".json"
+      ]
+    },
+    {
+      "path": "tests",
+      "recursive": true,
+      "strict": true,
+      "suffixes": [
+        ".test.mjs",
+        ".mjs",
+        ".mjs"
+      ]
+    },
+    {
+      "path": "skills/codex-engineering",
+      "recursive": true,
+      "strict": true,
+      "suffixes": [
+        ".md",
+        ".mjs",
+        ".yaml",
+        ".json"
+      ]
+    },
+    {
+      "path": "skills/review-product-plan",
+      "recursive": true,
+      "strict": true,
+      "suffixes": [
+        ".md",
+        ".mjs",
+        ".yaml",
+        ".json"
+      ]
+    },
+    {
+      "path": "upstream/pstack",
+      "recursive": false,
+      "suffixes": [
+        ".json"
+      ]
+    }
+  ],
+  "lockedSources": "upstream/pstack/source-lock.json"
+}

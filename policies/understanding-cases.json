@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "purpose": "Representative validation cases derived from already explicit collaboration decisions. These are checks, not a second requirements database. Bind user-intent to an active record and review the source meaning.",
+  "cases": [
+    { "id": "goal-preservation", "decisionKey": "user-intent", "sourceRef": "docs/master-plan-v0.9.md#用户要达到的结果", "fields": { "optimizationTarget": "string" } },
+    { "id": "required-regression", "decisionKey": "user-intent", "sourceRef": "docs/master-plan-v0.9.md#与旧方案和本轮交付的关系", "fields": { "deletedRequiredChecks": "string-array" } },
+    { "id": "complete-maintenance", "decisionKey": "user-intent", "sourceRef": "docs/master-plan-v0.9.md#功能地图从0到1及持续更新", "fields": { "maintenanceCoverage": "string", "claimsCompleteMaintenance": "boolean" } },
+    { "id": "authorized-small-change", "decisionKey": "user-intent", "sourceRef": "standards/requirements.md", "fields": { "alreadyAuthorized": "boolean", "smallReversibleChange": "boolean", "newDecisionRequired": "boolean", "asksForReapproval": "boolean" } },
+    { "id": "public-project-boundary", "decisionKey": "user-intent", "sourceRef": "docs/master-plan-v0.9.md#公共能力和项目能力怎么分", "fields": { "publicLayerContainsBusinessRules": "boolean" } },
+    { "id": "delivery-stages", "decisionKey": "user-intent", "sourceRef": "docs/master-plan-v0.9.md#发布状态", "fields": { "claims": "stage-claims", "stageEvidence": "stage-evidence" } },
+    { "id": "undecided-product-choice", "decisionKey": "user-intent", "sourceRef": "standards/requirements.md", "fields": { "choices": "choices" } }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "1.0.0",
+  "sourceRef": "GUIDE.md; public/index.html; docs/feature-map.json; ui-driver.mjs",
+  "hasUI": true,
+  "platforms": [
+    "web"
+  ],
+  "designRefs": [
+    "public/index.html#style",
+    "GUIDE.md#Browser"
+  ],
+  "componentRefs": [
+    "public/index.html#create-form",
+    "public/index.html#search-form",
+    "public/index.html#status"
+  ],
+  "categories": [
+    {
+      "categoryId": "Q01",
+      "applicability": "applicable",
+      "reason": "保存和搜索控件必须在实际页面完整且无遮挡，现有地图要求布局测量",
+      "sourceRef": "docs/feature-map.json#AC-0001; docs/feature-map.json#AC-0002"
+    },
+    {
+      "categoryId": "Q02",
+      "applicability": "applicable",
+      "reason": "现有表单按文档流共用左边界，复用已有布局，不增加品牌或密度设计目标",
+      "sourceRef": "public/index.html#style"
+    },
+    {
+      "categoryId": "Q03",
+      "applicability": "applicable",
+      "reason": "笔记标题、标签和状态需要可读，裁切由运行时文字框规则另行核对",
+      "sourceRef": "public/index.html; GUIDE.md#Browser"
+    },
+    {
+      "categoryId": "Q04",
+      "applicability": "applicable",
+      "reason": "复用现有360px窄屏检查；该模拟不代表真机、国际化或全部缩放矩阵已验收",
+      "sourceRef": "ui-driver.mjs#visualFaultSession"
+    },
+    {
+      "categoryId": "Q05",
+      "applicability": "applicable",
+      "reason": "原生表单、名称和状态存在；使用成熟axe结果，保留不确定项，不宣称完全符合性",
+      "sourceRef": "public/index.html; ../../docs/ui-interaction-quality-plan-20260927.md#UI-W3"
+    },
+    {
+      "categoryId": "Q06",
+      "applicability": "applicable",
+      "reason": "原生表单使用自然Tab顺序和Enter提交，实际键盘输入和焦点需核对",
+      "sourceRef": "public/index.html#create-form; GUIDE.md#Browser"
+    },
+    {
+      "categoryId": "Q07",
+      "applicability": "applicable",
+      "reason": "保存和搜索使用指针按钮，按适用WCAG最小目标尺寸核对并保留实际命中",
+      "sourceRef": "https://www.w3.org/TR/WCAG22/#target-size-minimum"
+    },
+    {
+      "categoryId": "Q08",
+      "applicability": "applicable",
+      "reason": "正文有2000字输入上限和空正文错误，保留真实输入及服务器错误",
+      "sourceRef": "public/index.html#note; docs/feature-map.json#AC-0001"
+    },
+    {
+      "categoryId": "Q09",
+      "applicability": "applicable",
+      "reason": "现有页面有加载、错误、空结果和保存状态；未实现的禁用或选中态不假装支持",
+      "sourceRef": "public/index.html#status; GUIDE.md#Browser"
+    },
+    {
+      "categoryId": "Q10",
+      "applicability": "applicable",
+      "reason": "现有任务包含刷新后的笔记读回；没有新增深链或未保存退出承诺",
+      "sourceRef": "GUIDE.md#Browser; docs/feature-map.json#AC-0001"
+    },
+    {
+      "categoryId": "Q11",
+      "applicability": "applicable",
+      "reason": "真实保存和搜索请求有异步状态，实际延迟网络核对正在保存反馈；乱序和防重未被此要求覆盖",
+      "sourceRef": "public/index.html#script"
+    },
+    {
+      "categoryId": "Q12",
+      "applicability": "applicable",
+      "reason": "既有11个目标和重启后的页面、CLI及数据读回保留，不用UI扫描替代",
+      "sourceRef": "GUIDE.md#Browser; GUIDE.md#CLI; docs/feature-map.json"
+    },
+    {
+      "categoryId": "Q13",
+      "applicability": "applicable",
+      "reason": "搜索请求可断网失败，复用同入口恢复；隔离网络故障不代表全部业务故障已覆盖",
+      "sourceRef": "public/index.html#search-form; GUIDE.md#Browser"
+    },
+    {
+      "categoryId": "Q14",
+      "applicability": "applicable",
+      "reason": "保存的持久化后果需明确，数据仅为sample-only；角色矩阵和生产隐私能力被现有样例明确排除",
+      "sourceRef": "GUIDE.md; public/index.html#small"
+    },
+    {
+      "categoryId": "Q15",
+      "applicability": "unknown",
+      "reason": "存在异步等待，但项目未给适用设备、数据量和响应/资源阈值；驱动超时不是产品性能承诺",
+      "sourceRef": "GUIDE.md; ui-driver.mjs#waitUntil"
+    },
+    {
+      "categoryId": "Q16",
+      "applicability": "not_applicable",
+      "reason": "现有笔记页面没有动画、音频、视频或定时媒体",
+      "sourceRef": "public/index.html"
+    },
+    {
+      "categoryId": "Q17",
+      "applicability": "unknown",
+      "reason": "当前仅实际运行可用浏览器，项目未声明完整支持浏览器/设备/系统矩阵；窄屏模拟不能补齐",
+      "sourceRef": "GUIDE.md#Browser; ui-driver.mjs#browserBinary"
+    },
+    {
+      "categoryId": "Q18",
+      "applicability": "not_applicable",
+      "reason": "现有界面是原生文本表单和笔记列表，没有画布、图表、终端或专用交互",
+      "sourceRef": "public/index.html"
+    }
+  ],
+  "adapters": [
+    {
+      "id": "sample-cdp",
+      "platform": "web",
+      "capabilities": [
+        "measurement",
+        "interaction",
+        "business"
+      ],
+      "sourceRef": "ui-driver.mjs",
+      "controlRef": "GUIDE.md",
+      "acceptanceRouteRef": "profile.json#ui-driver"
+    }
+  ],
+  "sourceChecks": [
+    {
+      "checkId": "ui-html-source",
+      "categoryIds": [
+        "Q03",
+        "Q05",
+        "Q06",
+        "Q08",
+        "Q09"
+      ],
+      "sourceRef": "../../scripts/ui-source-check.mjs; public/index.html; profile.json#checks/ui-html-source; GUIDE.md#UI-quality"
+    }
+  ],
+  "requirements": [
+    {
+      "ruleId": "sample-source",
+      "categoryId": "Q05",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "source",
+      "platform": "web",
+      "method": "source",
+      "sourceRef": "../../scripts/ui-source-check.mjs; public/index.html",
+      "expected": 0
+    },
+    {
+      "ruleId": "sample-containment",
+      "categoryId": "Q01",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "rendered",
+      "platform": "web",
+      "method": "measurement",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#create-form",
+      "expected": {
+        "operator": "lte",
+        "value": 1
+      }
+    },
+    {
+      "ruleId": "sample-alignment",
+      "categoryId": "Q02",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "rendered",
+      "platform": "web",
+      "method": "measurement",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#form-block-flow",
+      "expected": {
+        "operator": "lte",
+        "value": 1
+      }
+    },
+    {
+      "ruleId": "sample-title",
+      "categoryId": "Q03",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "rendered",
+      "platform": "web",
+      "method": "measurement",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#h1",
+      "expected": "隔离笔记验收"
+    },
+    {
+      "ruleId": "sample-narrow-overflow",
+      "categoryId": "Q04",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "narrow-360",
+      "platform": "web",
+      "method": "measurement",
+      "adapterId": "sample-cdp",
+      "sourceRef": "ui-driver.mjs#visualFaultSession",
+      "expected": {
+        "operator": "lte",
+        "value": 1
+      }
+    },
+    {
+      "ruleId": "sample-axe",
+      "categoryId": "Q05",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "rendered",
+      "platform": "web",
+      "method": "measurement",
+      "adapterId": "sample-cdp",
+      "sourceRef": "../../docs/ui-interaction-quality-plan-20260927.md#UI-W3",
+      "expected": {
+        "violations": 0,
+        "incomplete": 0
+      }
+    },
+    {
+      "ruleId": "sample-keyboard-focus",
+      "categoryId": "Q06",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "keyboard-focused",
+      "platform": "web",
+      "method": "interaction",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#create-form",
+      "actions": [
+        "input",
+        "key",
+        "wait"
+      ],
+      "expected": "#create-form button"
+    },
+    {
+      "ruleId": "sample-keyboard-focus-visible",
+      "categoryId": "Q06",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "keyboard-focused",
+      "platform": "web",
+      "method": "interaction",
+      "adapterId": "sample-cdp",
+      "sourceRef": "https://www.w3.org/TR/WCAG22/#focus-visible",
+      "actions": [
+        "input",
+        "key",
+        "wait"
+      ],
+      "expected": true
+    },
+    {
+      "ruleId": "sample-target-size",
+      "categoryId": "Q07",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "rendered",
+      "platform": "web",
+      "method": "measurement",
+      "adapterId": "sample-cdp",
+      "sourceRef": "https://www.w3.org/TR/WCAG22/#target-size-minimum",
+      "expected": {
+        "operator": "gte",
+        "value": 24
+      }
+    },
+    {
+      "ruleId": "sample-input-boundary",
+      "categoryId": "Q08",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "input-2001",
+      "platform": "web",
+      "method": "interaction",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#note-maxlength",
+      "actions": [
+        "input",
+        "wait"
+      ],
+      "expected": 2000
+    },
+    {
+      "ruleId": "sample-status-visible",
+      "categoryId": "Q09",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "rendered",
+      "platform": "web",
+      "method": "measurement",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#status",
+      "expected": true
+    },
+    {
+      "ruleId": "sample-refresh",
+      "categoryId": "Q10",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "reloaded",
+      "platform": "web",
+      "method": "business",
+      "adapterId": "sample-cdp",
+      "sourceRef": "GUIDE.md#Browser; docs/feature-map.json#AC-0001",
+      "actions": [
+        "input",
+        "key",
+        "wait",
+        "readback"
+      ],
+      "expected": "工程验收-20260923-真实浏览器持久化"
+    },
+    {
+      "ruleId": "sample-pending-save",
+      "categoryId": "Q11",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "pending",
+      "platform": "web",
+      "method": "interaction",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#script",
+      "actions": [
+        "input",
+        "key",
+        "wait"
+      ],
+      "expected": "正在保存并读取结果…"
+    },
+    {
+      "ruleId": "sample-persistence",
+      "categoryId": "Q12",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "persisted",
+      "platform": "web",
+      "method": "business",
+      "adapterId": "sample-cdp",
+      "sourceRef": "GUIDE.md#Browser; docs/feature-map.json#AC-0001",
+      "actions": [
+        "input",
+        "key",
+        "wait",
+        "readback"
+      ],
+      "expected": "工程验收-20260923-真实浏览器持久化"
+    },
+    {
+      "ruleId": "sample-recovery",
+      "categoryId": "Q13",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0002",
+      "entrypointId": "ui-search",
+      "targetId": "ui-search-clear",
+      "state": "offline-recovered",
+      "platform": "web",
+      "method": "business",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#search-form",
+      "actions": [
+        "input",
+        "click",
+        "wait",
+        "readback"
+      ],
+      "expected": "工程验收-20260923-真实浏览器持久化"
+    },
+    {
+      "ruleId": "sample-persistence-disclosure",
+      "categoryId": "Q14",
+      "featureId": "FEAT-0001",
+      "acId": "AC-0001",
+      "entrypointId": "ui-create",
+      "targetId": "ui-create",
+      "state": "saved",
+      "platform": "web",
+      "method": "interaction",
+      "adapterId": "sample-cdp",
+      "sourceRef": "public/index.html#small; GUIDE.md",
+      "actions": [
+        "input",
+        "key",
+        "wait"
+      ],
+      "expected": {
+        "operator": "includes",
+        "value": "数据会在刷新和服务重启后保留"
+      }
+    }
+  ],
+  "exceptions": []
+}

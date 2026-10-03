@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "version": "engineering-judgments-evaluation-1.0.0",
+  "minimum_holdout_cases": 12,
+  "required_holdout_accuracy": 1,
+  "maximum_critical_errors": 0,
+  "must_match_or_exceed_baseline_detection": true,
+  "required_total_cost_saving_fraction": 0.15,
+  "mode": "recommendation_only",
+  "note": "保留集缺答和弃权留在分母并计回退。小样本通过仅允许低影响辅助试用；无完整总成本/原判断实际替代数据不能宣称降本。离线固定回执只证明适配器和评估器，不证明模型质量。"
+}

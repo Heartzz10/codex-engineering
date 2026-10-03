@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 2,
+  "id": "verification-sample",
+  "sharedVersion": "0.5.14",
+  "root": ".",
+  "authoritativeDocuments": [
+    "GUIDE.md"
+  ],
+  "environmentRef": "isolated-loopback",
+  "uiQualityRef": "ui-quality.json",
+  "engineeringRulesRef": "engineering-rules.json",
+  "permissions": {
+    "testArtifacts": true,
+    "network": true
+  },
+  "environmentKeys": [
+    "CODEX_SAMPLE_BROWSER"
+  ],
+  "checks": [],
+  "entrypoints": [
+    {
+      "id": "ui-create",
+      "kind": "real",
+      "url": "http://127.0.0.1:43187/"
+    },
+    {
+      "id": "ui-search",
+      "kind": "real",
+      "url": "http://127.0.0.1:43187/"
+    },
+    {
+      "id": "cli-create",
+      "kind": "real",
+      "url": "http://127.0.0.1:43187/"
+    },
+    {
+      "id": "cli-list",
+      "kind": "real",
+      "url": "http://127.0.0.1:43187/"
+    },
+    {
+      "id": "cli-search",
+      "kind": "real",
+      "url": "http://127.0.0.1:43187/"
+    },
+    {
+      "id": "cli-dry-run",
+      "kind": "real",
+      "url": "http://127.0.0.1:43187/"
+    }
+  ],
+  "featureMapRef": {
+    "schemaVersion": 1,
+    "path": "docs/feature-map.json",
+    "historyDir": "docs/feature-history",
+    "evidenceDir": "evidence"
+  },
+  "acceptanceRoutes": [
+    {
+      "id": "ui-driver",
+      "kind": "ui",
+      "entrypointIds": [
+        "ui-create",
+        "ui-search"
+      ],
+      "driverRef": "ui-driver.mjs",
+      "available": true,
+      "real": true,
+      "effects": {
+        "writes": "test-artifacts",
+        "network": true,
+        "paid": false
+      },
+      "authorizationRef": "isolated-local-sample-no-paid-services",
+      "guards": {
+        "permissionRef": "sample-user",
+        "isolationRef": "sample-data-only"
+      }
+    },
+    {
+      "id": "cli-driver",
+      "kind": "cli",
+      "entrypointIds": [
+        "cli-create",
+        "cli-list",
+        "cli-search",
+        "cli-dry-run"
+      ],
+      "driverRef": "driver.mjs",
+      "available": true,
+      "real": true,
+      "effects": {
+        "writes": "test-artifacts",
+        "network": true,
+        "paid": false
+      },
+      "authorizationRef": "isolated-local-sample-no-paid-services",
+      "guards": {
+        "permissionRef": "sample-user",
+        "isolationRef": "sample-data-only"
+      }
+    }
+  ],
+  "controls": {
+    "schemaVersion": 1,
+    "launch": {
+      "ref": "node driver.mjs launch",
+      "readySignal": "health.status=ready"
+    },
+    "doctor": {
+      "ref": "node driver.mjs doctor",
+      "readOnly": true
+    },
+    "drive": {
+      "ref": "GUIDE.md",
+      "entrypointIds": [
+        "ui-create",
+        "ui-search",
+        "cli-create",
+        "cli-list",
+        "cli-search",
+        "cli-dry-run"
+      ]
+    },
+    "evidence": {
+      "ref": "evidence/*.json"
+    },
+    "cleanup": {
+      "ref": "node driver.mjs cleanup",
+      "preservesEvidence": true
+    },
+    "sourceReview": {
+      "ref": "GUIDE.md",
+      "inputs": [
+        "server.mjs",
+        "driver.mjs",
+        "public/index.html",
+        "ui-driver.mjs"
+      ]
+    },
+    "isolation": {
+      "instanceRef": "local-sample-port-43187",
+      "dataScopeRef": "sample-only",
+      "sessionExclusive": true
+    }
+  }
+}

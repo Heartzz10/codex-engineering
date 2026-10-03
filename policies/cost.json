@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "modelFamilies": {
+    "light": "luna",
+    "standard": "sol",
+    "strong": "astra"
+  },
+  "effortPreference": {
+    "low": ["low", "medium"],
+    "medium": ["medium", "high"],
+    "high": ["high", "medium"],
+    "browser": ["medium", "low"]
+  },
+  "escalateWhen": [
+    "missing-risk-control",
+    "validation-failed",
+    "out-of-category",
+    "new-critical-unknown",
+    "conflicting-evidence",
+    "unreliable-operation",
+    "capability-related-failure"
+  ],
+  "riskControls": {
+    "required": ["errorConsequence", "automaticDetection", "reversible"],
+    "consequences": ["low", "medium", "high"],
+    "workTypes": ["code", "browser", "search", "analysis", "records", "review"]
+  }
+}

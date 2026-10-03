@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:codex-engineering:ui-quality:1",
+  "title": "Project UI quality configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "ruleVersion", "sourceRef", "hasUI", "platforms", "designRefs", "componentRefs", "categories", "adapters", "sourceChecks", "requirements", "exceptions"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "ruleVersion": {"const": "1.0.0"},
+    "sourceRef": {"$ref": "#/$defs/text"},
+    "hasUI": {"type": ["boolean", "null"]},
+    "platforms": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/platform"}},
+    "designRefs": {"$ref": "#/$defs/texts"},
+    "componentRefs": {"$ref": "#/$defs/texts"},
+    "categories": {"type": "array", "minItems": 18, "maxItems": 18, "items": {"$ref": "#/$defs/category"}},
+    "adapters": {"type": "array", "items": {"$ref": "#/$defs/adapter"}},
+    "sourceChecks": {"type": "array", "items": {"$ref": "#/$defs/sourceCheck"}},
+    "requirements": {"type": "array", "items": {"$ref": "#/$defs/requirement"}},
+    "exceptions": {"type": "array", "items": {"$ref": "#/$defs/exception"}}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "reference": {"type": "string", "minLength": 1, "pattern": "^(?!\\*$).*\\S"},
+    "texts": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+    "platform": {"enum": ["web", "electron", "webview", "android", "ios", "ipados", "macos", "windows", "linux", "flutter", "specialized"]},
+    "categoryId": {"enum": ["Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08", "Q09", "Q10", "Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18"]},
+    "method": {"enum": ["source", "measurement", "interaction", "business", "review"]},
+    "category": {
+      "type": "object", "additionalProperties": false,
+      "required": ["categoryId", "applicability", "reason", "sourceRef"],
+      "properties": {
+        "categoryId": {"$ref": "#/$defs/categoryId"},
+        "applicability": {"enum": ["applicable", "not_applicable", "unknown"]},
+        "reason": {"$ref": "#/$defs/text"}, "sourceRef": {"$ref": "#/$defs/text"}
+      }
+    },
+    "adapter": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "platform", "capabilities", "sourceRef"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"}, "platform": {"$ref": "#/$defs/platform"},
+        "capabilities": {"type": "array", "items": {"$ref": "#/$defs/method"}},
+        "sourceRef": {"$ref": "#/$defs/text"}, "runtimeVersion": {"$ref": "#/$defs/text"},
+        "controlRef": {"$ref": "#/$defs/text"}, "acceptanceRouteRef": {"$ref": "#/$defs/text"}
+      }
+    },
+    "sourceCheck": {
+      "type": "object", "additionalProperties": false,
+      "required": ["checkId", "categoryIds", "sourceRef"],
+      "properties": {
+        "checkId": {"$ref": "#/$defs/text"}, "categoryIds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/categoryId"}},
+        "sourceRef": {"$ref": "#/$defs/text"}
+      }
+    },
+    "expected": {
+      "if": {"type": "object", "required": ["operator"]},
+      "then": {
+        "type": "object", "additionalProperties": false, "required": ["operator", "value"],
+        "properties": {"operator": {"enum": ["eq", "gte", "lte", "includes", "oneOf"]}, "value": {}},
+        "allOf": [
+          {"if": {"properties": {"operator": {"enum": ["gte", "lte"]}}}, "then": {"properties": {"value": {"type": "number"}}}},
+          {"if": {"properties": {"operator": {"const": "oneOf"}}}, "then": {"properties": {"value": {"type": "array", "minItems": 1}}}}
+        ]
+      }
+    },
+    "requirement": {
+      "type": "object", "additionalProperties": false,
+      "required": ["ruleId", "categoryId", "featureId", "acId", "entrypointId", "targetId", "state", "platform", "method", "sourceRef", "expected"],
+      "properties": {
+        "ruleId": {"$ref": "#/$defs/reference"}, "categoryId": {"$ref": "#/$defs/categoryId"},
+        "featureId": {"$ref": "#/$defs/reference"}, "acId": {"$ref": "#/$defs/reference"},
+        "entrypointId": {"$ref": "#/$defs/reference"}, "targetId": {"$ref": "#/$defs/reference"},
+        "state": {"$ref": "#/$defs/reference"}, "platform": {"$ref": "#/$defs/platform"},
+        "method": {"$ref": "#/$defs/method"}, "sourceRef": {"$ref": "#/$defs/reference"},
+        "expected": {"$ref": "#/$defs/expected"}, "adapterId": {"$ref": "#/$defs/text"},
+        "actions": {"$ref": "#/$defs/texts"}, "roleRef": {"$ref": "#/$defs/text"},
+        "environmentRef": {"$ref": "#/$defs/text"}, "dataScopeRef": {"$ref": "#/$defs/text"},
+        "sourceVersion": {"$ref": "#/$defs/text"}, "requirementVersion": {"$ref": "#/$defs/text"}
+      }
+    },
+    "exception": {
+      "type": "object", "additionalProperties": false,
+      "required": ["ruleId", "targetId", "state", "sourceRef", "reason", "invalidationCondition"],
+      "properties": {
+        "ruleId": {"$ref": "#/$defs/reference"}, "targetId": {"$ref": "#/$defs/reference"},
+        "state": {"$ref": "#/$defs/reference"}, "sourceRef": {"$ref": "#/$defs/reference"},
+        "reason": {"$ref": "#/$defs/reference"}, "invalidationCondition": {"$ref": "#/$defs/reference"}
+      }
+    }
+  }
+}

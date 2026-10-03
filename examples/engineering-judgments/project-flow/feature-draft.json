@@ -1,0 +1,56 @@
+{
+  "recordedBy": "agent:synthetic-example",
+  "sourceRef": "requirements.md:1",
+  "requirements": [
+    {
+      "key": "list-loading",
+      "intent": "列表载入时提供状态提示，完成后呈现条目",
+      "decision": "accepted",
+      "decisionRef": "synthetic:confirmed-loading-behavior",
+      "schedule": "current",
+      "featureIds": ["@list"],
+      "openQuestions": [],
+      "decisionEvidenceRefs": [{ "path": "requirements.md", "startLine": 1, "endLine": 1, "sourceLabel": "已确认的列表载入要求" }]
+    }
+  ],
+  "features": [
+    {
+      "key": "list", "title": "列表载入", "user": "访客", "scenario": "打开列表", "goal": "看清载入过程与条目",
+      "scope": ["载入状态文案"], "exclusions": ["整体页面与真实接口验收"],
+      "humanAutomation": { "human": "打开列表", "automatic": "载入并显示条目" },
+      "requirementIds": ["@list-loading"], "dependencyIds": [], "entrypointIds": ["list"],
+      "implementationRefs": [{ "path": "copy.json" }], "acceptanceCriteria": ["@loading"],
+      "lifecycle": "active", "deliveryStatus": "in_progress"
+    }
+  ],
+  "acceptanceCriteria": [
+    {
+      "key": "loading", "featureId": "@list", "requirementIds": ["@list-loading"],
+      "preconditions": ["列表开始载入"], "actions": [{ "type": "open", "description": "打开列表" }],
+      "expected": "载入时显示状态提示，完成后显示返回的条目", "verificationMethod": "ui",
+      "effects": { "writes": "test-artifacts", "network": false, "paid": false },
+      "assertions": [
+        { "id": "has-list", "operator": "equals", "path": "/listVisible", "expected": true },
+        {
+          "id": "loading-copy", "operator": "manual",
+          "semanticReview": {
+            "kind": "requirement_fidelity", "materialScope": "synthetic", "category": "ordinary_status_copy",
+            "targetRef": { "path": "copy.json", "pointer": "/list/loading" },
+            "reviewerRef": "synthetic:copy-scope-review",
+            "checkedExclusions": ["deletion_or_overwrite", "permission_request", "payment_or_privacy", "safety_or_legal", "new_business_rule", "cross_material_interpretation"],
+            "presentEffects": []
+          }
+        },
+        { "id": "whole-page", "operator": "manual" }
+      ],
+      "requiredEvidenceTypes": ["execution"], "dependencyRefs": [], "implementationRefs": [{ "path": "copy.json" }],
+      "requiredTargets": [{ "targetId": "list-loading", "entrypointId": "list", "roleRef": "visitor", "scenario": "loading", "environmentRef": "synthetic-local", "dataScopeRef": "synthetic-data" }]
+    }
+  ],
+  "change": {
+    "type": "feature", "reason": "演示从已确认要求自动关联状态文案", "decision": "accepted",
+    "decisionRef": "synthetic:confirmed-loading-behavior", "requirementIds": ["@list-loading"],
+    "featureIds": ["@list"], "acIds": ["@loading"], "implementationRefs": [{ "path": "copy.json" }],
+    "migrationImpact": "none", "recoveryImpact": "none"
+  }
+}

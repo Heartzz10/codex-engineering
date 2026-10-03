@@ -1,0 +1,11 @@
+{
+  "kind": "implementation",
+  "risk": "low",
+  "workType": "code",
+  "scopeClear": true,
+  "independent": true,
+  "errorConsequence": "high",
+  "automaticDetection": false,
+  "reversible": false,
+  "currentModel": "gpt-6-luna"
+}

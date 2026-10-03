@@ -1,0 +1,18 @@
+{
+  "name": "codex-engineering",
+  "version": "0.5.14",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.13.0",
+    "esbuild": "0.25.12",
+    "html-validate": "10.9.0"
+  },
+  "license": "MIT"
+}

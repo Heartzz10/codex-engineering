@@ -1,0 +1,815 @@
+{
+  "schemaVersion": 1,
+  "pinnedCommit": "b42effe0aa50f59c693d7e2924714e015e00bf7c",
+  "sourceClosureStatus": "verified_for_selected_and_conditional_dependencies",
+  "implementationClosureStatus": "planned",
+  "sourceInventory": "source-lock.json",
+  "rows": [
+    {
+      "sourcePath": "pstack/skills/architect/SKILL.md",
+      "blobSha": "a062cb706c2aa3b79fc2b3f2687d840a2a233d19",
+      "dependencies": [
+        {
+          "reference": "references/design-red-flags.md",
+          "resolvedPaths": [
+            "pstack/skills/architect/references/design-red-flags.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/rationale-template.md",
+          "resolvedPaths": [
+            "pstack/skills/architect/references/rationale-template.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/runner-prompt.md",
+          "resolvedPaths": [
+            "pstack/skills/architect/references/runner-prompt.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/architect/references/design-red-flags.md",
+      "blobSha": "32cb24083f308fd67ab4c431b44e1d7d3563435a",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/architect/references/rationale-template.md",
+      "blobSha": "a10f77f59510c532cd909faaf3bfeee5ffbfd588",
+      "dependencies": [
+        {
+          "reference": "../../arena/SKILL.md",
+          "resolvedPaths": [
+            "pstack/skills/arena/SKILL.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "../SKILL.md",
+          "resolvedPaths": [
+            "pstack/skills/architect/SKILL.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/architect/references/runner-prompt.md",
+      "blobSha": "580ec47a5df4259a6a9ace5c452e33092053bb90",
+      "dependencies": [
+        {
+          "reference": "rationale-template.md",
+          "resolvedPaths": [
+            "pstack/skills/architect/references/rationale-template.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/arena/SKILL.md",
+      "blobSha": "2139ad1cd68e3e4d74d4bea8538193bff01f29f5",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/create-verification-skill/SKILL.md",
+      "blobSha": "f869e26122991252373d5b8f6357e5b9ff195a00",
+      "dependencies": [
+        {
+          "reference": "references/feature-map-example/",
+          "resolvedPaths": [
+            "pstack/skills/create-verification-skill/references/feature-map-example/README.md",
+            "pstack/skills/create-verification-skill/references/feature-map-example/create-note.md",
+            "pstack/skills/create-verification-skill/references/feature-map-example/search.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": ".cursor/skills/verify-<app>, project-local harness, feature map",
+          "adoption": "adapted",
+          "adapter": "Shared Codex skill plus project controls and generated feature projections; Launch/Doctor/Drive/Evidence/Cleanup, discoverability and complete maintenance remain mandatory.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/create-verification-skill/references/feature-map-example/README.md",
+      "blobSha": "fb64570cfab3bbe672fe80925651933ebd57aa33",
+      "dependencies": [
+        {
+          "reference": "./create-note.md",
+          "resolvedPaths": [
+            "pstack/skills/create-verification-skill/references/feature-map-example/create-note.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "./search.md",
+          "resolvedPaths": [
+            "pstack/skills/create-verification-skill/references/feature-map-example/search.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": ".cursor/skills/verify-<app>, project-local harness, feature map",
+          "adoption": "adapted",
+          "adapter": "Shared Codex skill plus project controls and generated feature projections; Launch/Doctor/Drive/Evidence/Cleanup, discoverability and complete maintenance remain mandatory.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/create-verification-skill/references/feature-map-example/create-note.md",
+      "blobSha": "21357566b69223a503d6780a04fb90ce540eae22",
+      "dependencies": [
+        {
+          "reference": ".cursor/skills/verify-<app>, project-local harness, feature map",
+          "adoption": "adapted",
+          "adapter": "Shared Codex skill plus project controls and generated feature projections; Launch/Doctor/Drive/Evidence/Cleanup, discoverability and complete maintenance remain mandatory.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/create-verification-skill/references/feature-map-example/search.md",
+      "blobSha": "1f8e57d3aaf19cf27a9464d55fa72e46bcbc8b0f",
+      "dependencies": [
+        {
+          "reference": ".cursor/skills/verify-<app>, project-local harness, feature map",
+          "adoption": "adapted",
+          "adapter": "Shared Codex skill plus project controls and generated feature projections; Launch/Doctor/Drive/Evidence/Cleanup, discoverability and complete maintenance remain mandatory.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/how/SKILL.md",
+      "blobSha": "a3a835fa660673903ee0cbc5262b3258bf897d7a",
+      "dependencies": [
+        {
+          "reference": "references/explainer-prompt.md",
+          "resolvedPaths": [
+            "pstack/skills/how/references/explainer-prompt.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/explorer-prompt.md",
+          "resolvedPaths": [
+            "pstack/skills/how/references/explorer-prompt.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "read-only code exploration and explainer roles",
+          "adoption": "adapted",
+          "adapter": "Codex subagents with available configured models; simple versus complex split retained; file/line citations and evidence gaps retained.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/how/references/explainer-prompt.md",
+      "blobSha": "3a36fb6736c5b74ac2774350841e332a019dec94",
+      "dependencies": [
+        {
+          "reference": "read-only code exploration and explainer roles",
+          "adoption": "adapted",
+          "adapter": "Codex subagents with available configured models; simple versus complex split retained; file/line citations and evidence gaps retained.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/how/references/explorer-prompt.md",
+      "blobSha": "9b4b0594bfd779015616e9d280369aba939583b4",
+      "dependencies": [
+        {
+          "reference": "read-only code exploration and explainer roles",
+          "adoption": "adapted",
+          "adapter": "Codex subagents with available configured models; simple versus complex split retained; file/line citations and evidence gaps retained.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/interrogate/SKILL.md",
+      "blobSha": "0fd70fd89293e36a333c362264a3cfe2da66c10f",
+      "dependencies": [
+        {
+          "reference": "references/code-quality-review.md",
+          "resolvedPaths": [
+            "pstack/skills/interrogate/references/code-quality-review.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/lead-judgment.md",
+          "resolvedPaths": [
+            "pstack/skills/interrogate/references/lead-judgment.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/reviewer-prompt.md",
+          "resolvedPaths": [
+            "pstack/skills/interrogate/references/reviewer-prompt.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/rubric.md",
+          "resolvedPaths": [
+            "pstack/skills/interrogate/references/rubric.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/interrogate/references/code-quality-review.md",
+      "blobSha": "50230358f9b6138caf66065b1084be595d453d81",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/interrogate/references/lead-judgment.md",
+      "blobSha": "5ce526097fdd3dfeaf4cd3b126a3f486c3ee36ae",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/interrogate/references/reviewer-prompt.md",
+      "blobSha": "53ffa747ff6af72ed24cc00e2622b2c14dd564a9",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/interrogate/references/rubric.md",
+      "blobSha": "04bd4ca6d31a17694071c415c349128a3b404006",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/maintain-verification-skill/SKILL.md",
+      "blobSha": "a2680b91fead45a0b4963d8c367a854956bea59d",
+      "dependencies": [
+        {
+          "reference": ".cursor/skills/verify-<app>, project-local harness, feature map",
+          "adoption": "adapted",
+          "adapter": "Shared Codex skill plus project controls and generated feature projections; Launch/Doctor/Drive/Evidence/Cleanup, discoverability and complete maintenance remain mandatory.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/no-comments/SKILL.md",
+      "blobSha": "3b3e76295a7ad66806dcc683e4de92fb25690f8b",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/poteto-mode/SKILL.md",
+      "blobSha": "5cec6fb87ac9b578631b121c24a1b4c0421d674d",
+      "dependencies": [
+        {
+          "reference": "references/bugbot-triage.md",
+          "resolvedPaths": [
+            "pstack/skills/poteto-mode/references/bugbot-triage.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+      "blobSha": "7deba2c88ebc708a541ad226e904217c3eeceecd",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/investigation.md",
+      "blobSha": "cd119f04f23e0b7acb3f8cc5ba13ce4ab7aa6c7d",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "blobSha": "a5c65a0959d0c37ebd12d5636710c4e0f91fba88",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "blobSha": "ba659bfe1c4c2f956f3285974bfdc941120f9948",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+      "blobSha": "48ed6b2f690215027eda96a1897ed98212bbd07a",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/principle-fix-root-causes/SKILL.md",
+      "blobSha": "7e5a419aeec97b4076fa517865013677428a9fa3",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/principle-guard-the-context-window/SKILL.md",
+      "blobSha": "eb2cecc40f9d830dc077009f93a467be69f195a2",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/principle-sequence-verifiable-units/SKILL.md",
+      "blobSha": "986371260ebccd9a5a6818c9561e88c1d270d0ee",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/tdd/SKILL.md",
+      "blobSha": "6f4933ff41e298b0562ea1c1239cd33046634b88",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/technical-writing/SKILL.md",
+      "blobSha": "1cd44cf2595a5caeda1f702aacd4f8a25aa8166a",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/unslop/SKILL.md",
+      "blobSha": "229a090708710c36caa0017f8d33e90880dc6846",
+      "dependencies": []
+    },
+    {
+      "sourcePath": "pstack/skills/why/SKILL.md",
+      "blobSha": "79b526077dd843ea3e907dd5d86e470260efbeda",
+      "dependencies": [
+        {
+          "reference": "references/epistemics.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/epistemics.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/investigator-prompt.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/investigator-prompt.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/source-playbook.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/source-playbook.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/sources/*.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/code-archaeology.md",
+            "pstack/skills/why/references/sources/databricks.md",
+            "pstack/skills/why/references/sources/datadog.md",
+            "pstack/skills/why/references/sources/incident-postmortem.md",
+            "pstack/skills/why/references/sources/linear.md",
+            "pstack/skills/why/references/sources/notion.md",
+            "pstack/skills/why/references/sources/sentry.md",
+            "pstack/skills/why/references/sources/slack.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/sources/<source>.md",
+          "sourceStatus": "template_placeholder",
+          "adoption": "adapted",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/sources/incident-postmortem.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/incident-postmortem.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "references/synthesizer-prompt.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/synthesizer-prompt.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/epistemics.md",
+      "blobSha": "3732bf6881b60d1337fa3498574452a85d33ba30",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/investigator-prompt.md",
+      "blobSha": "3b56af44c589833508f4605cfdd4432b39a16739",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/source-playbook.md",
+      "blobSha": "aa3d877cd539763ff05e266ae0a02dd811441e2b",
+      "dependencies": [
+        {
+          "reference": "./sources/code-archaeology.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/code-archaeology.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "./sources/databricks.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/databricks.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "./sources/datadog.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/datadog.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "./sources/incident-postmortem.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/incident-postmortem.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "./sources/linear.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/linear.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "./sources/notion.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/notion.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "./sources/sentry.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/sentry.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "./sources/slack.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/sources/slack.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/sources/code-archaeology.md",
+      "blobSha": "32d5f97f8d2d3974c668f5f0392737b7e8e25afd",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/sources/databricks.md",
+      "blobSha": "2770763ff5d0d1ad004abcc9a0138c9537ad1978",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/sources/datadog.md",
+      "blobSha": "d8363b1c1d1c7eadb15d47abd83bf70537c39620",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/sources/incident-postmortem.md",
+      "blobSha": "450d6e52f25b1b41f741cb3e9c93e1c74ef858b4",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/sources/linear.md",
+      "blobSha": "899c643c078f322afe6ae0ef78a007f8ffd356c1",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/sources/notion.md",
+      "blobSha": "d16230a4105fd1dacf870da0950a38faeb9381e6",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/sources/sentry.md",
+      "blobSha": "2b7cf6f3098ee868547dc4e69efacfe9c255246b",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/sources/slack.md",
+      "blobSha": "863a527d60e4e055e680834ef8098ea04273a1ae",
+      "dependencies": [
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    },
+    {
+      "sourcePath": "pstack/skills/why/references/synthesizer-prompt.md",
+      "blobSha": "9707dfcc2fc57ea126484a433c5cd9ee4d400ef3",
+      "dependencies": [
+        {
+          "reference": "references/epistemics.md",
+          "resolvedPaths": [
+            "pstack/skills/why/references/epistemics.md"
+          ],
+          "sourceStatus": "verified",
+          "adoption": "required",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "url",
+          "sourceStatus": "template_placeholder",
+          "adoption": "adapted",
+          "executionStatus": "planned"
+        },
+        {
+          "reference": "seven evidence categories; git/PR context; available MCPs; epistemics",
+          "adoption": "required",
+          "adapter": "Discover available Codex tools by actual schema. Each category has searched/null/unavailable/justified-skip coverage. Missing connector is a named gap, never invented evidence. Tool names and company tables are examples.",
+          "executionStatus": "planned"
+        }
+      ]
+    }
+  ],
+  "namedDependencies": [
+    {
+      "name": "how",
+      "adoption": "required",
+      "requiredEffect": "structure, runtime flow, code boundaries and traceable citations",
+      "status": "planned"
+    },
+    {
+      "name": "why",
+      "adoption": "required",
+      "requiredEffect": "historical and all available evidence categories; explicit unknowns and confidence",
+      "status": "planned"
+    },
+    {
+      "name": "principle-fix-root-causes",
+      "adoption": "required",
+      "requiredEffect": "reproduce, instrument, search sibling patterns, validate persistent state after restart",
+      "status": "planned"
+    },
+    {
+      "name": "tdd",
+      "adoption": "adapted",
+      "requiredEffect": "cheap executable failing-before regression; explicit costly/unclear exception and closest real alternative",
+      "status": "planned"
+    },
+    {
+      "name": "architect",
+      "adoption": "adapted",
+      "requiredEffect": "when fix crosses a function boundary, ground and compare viable architecture before implementation",
+      "status": "planned"
+    },
+    {
+      "name": "arena",
+      "adoption": "adapted",
+      "requiredEffect": "conditional architect dependency; at least two distinct design candidates and reasoned synthesis",
+      "status": "planned"
+    },
+    {
+      "name": "interrogate",
+      "adoption": "adapted",
+      "requiredEffect": "conditional independent review of contested design / delegated PR; preserve criticism and evidence",
+      "status": "planned"
+    },
+    {
+      "name": "principle-guard-the-context-window",
+      "adoption": "adapted",
+      "requiredEffect": "large artifact reduction through bounded delegates; retain source artifact and reduced finding",
+      "status": "planned"
+    },
+    {
+      "name": "principle-sequence-verifiable-units",
+      "adoption": "adapted",
+      "requiredEffect": "check each coherent unit; preserve ordered failing-before and passing-after evidence",
+      "status": "planned"
+    },
+    {
+      "name": "unslop",
+      "adoption": "adapted",
+      "requiredEffect": "cited, precise reply; no unsupported certainty; preserve required result sections",
+      "status": "planned"
+    },
+    {
+      "name": "technical-writing",
+      "adoption": "adapted",
+      "requiredEffect": "reader-oriented explanation of problem, effect, tradeoffs and real verification",
+      "status": "planned"
+    },
+    {
+      "name": "no-comments",
+      "adoption": "adapted",
+      "requiredEffect": "review comments and prose for necessity without deleting useful rationale",
+      "status": "planned"
+    },
+    {
+      "name": "control-ui/control-cli",
+      "adoption": "adapted",
+      "requiredEffect": "actual project surface with authorized browser/CLI/API drivers; runtime capture tools when relevant",
+      "status": "planned"
+    },
+    {
+      "name": "cursor-team-kit/deslop",
+      "adoption": "adapted",
+      "requiredEffect": "review and remove unnecessary changes before commit; no new plugin required for equivalent review",
+      "status": "planned"
+    },
+    {
+      "name": "Cursor Task/model/loop APIs",
+      "adoption": "adapted",
+      "requiredEffect": "Codex delegation and sustained work; configured available models, no invented model switch or new paid service",
+      "status": "planned"
+    },
+    {
+      "name": "Opening a PR",
+      "adoption": "adapted",
+      "requiredEffect": "project delivery and review convention preserves verified diff, clear description and user changes; upstream mandatory ready-PR/forced resets do not override local authorization or safe workspace handling",
+      "status": "planned"
+    },
+    {
+      "name": "how/why reference files",
+      "adoption": "required",
+      "requiredEffect": "all helper prompts, epistemics, seven source adapters and incident cross-cutting guidance preserved",
+      "status": "planned"
+    },
+    {
+      "name": "feature-map-example",
+      "adoption": "adapted",
+      "requiredEffect": "structure and proof standards apply; Notes/control-notes names, example ports and commands are illustrative",
+      "status": "planned"
+    }
+  ],
+  "notAdoptedExecutionWorkflows": [
+    "perf-issue",
+    "hillclimb",
+    "feature",
+    "refactoring",
+    "prototype",
+    "visual-parity",
+    "authoring-a-skill",
+    "eval",
+    "babysit",
+    "shipping",
+    "autonomous-run",
+    "orchestrate",
+    "autopilot-full",
+    "autopilot-stack",
+    "session-pickup",
+    "pause-safely",
+    "multi-phase-plan",
+    "worktree-cleanup",
+    "opening-a-pr"
+  ],
+  "boundary": "Reading/snapshotting a dependency is not adoption of every workflow it mentions. All 23 routing categories are retained; 4 execution playbooks selected. Conditional supporting behavior stays required when its trigger applies.",
+  "unavailableRuntimeHandling": "Record precise missing permission/tool/data, preserve completed evidence, keep affected effect blocked; never replace CPU/heap/UI profiling with generic log-reading or claim evidence without a capture.",
+  "newProductOrFeeDecisionsRequiredByAudit": []
+}

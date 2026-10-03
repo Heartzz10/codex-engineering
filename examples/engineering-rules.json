@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "1.0.0",
+  "domains": [
+    {
+      "domain": "ui",
+      "applicability": "unknown",
+      "reason": "公共规则已有，具体业务及检查仍需项目绑定",
+      "sourceRef": "docs/engineering-rule-baseline-bindings-20260927.md"
+    },
+    {
+      "domain": "interaction",
+      "applicability": "unknown",
+      "reason": "公共规则已有，具体业务及检查仍需项目绑定",
+      "sourceRef": "docs/engineering-rule-baseline-bindings-20260927.md"
+    },
+    {
+      "domain": "errors",
+      "applicability": "applicable",
+      "reason": "本次修复公共异常转换；其余错误规则仍待绑定",
+      "sourceRef": "docs/engineering-rule-baseline-bindings-20260927.md"
+    },
+    {
+      "domain": "logs",
+      "applicability": "unknown",
+      "reason": "公共规则已有，具体业务及检查仍需项目绑定",
+      "sourceRef": "docs/engineering-rule-baseline-bindings-20260927.md"
+    },
+    {
+      "domain": "permissions",
+      "applicability": "unknown",
+      "reason": "公共规则已有，具体业务及检查仍需项目绑定",
+      "sourceRef": "docs/engineering-rule-baseline-bindings-20260927.md"
+    },
+    {
+      "domain": "data",
+      "applicability": "applicable",
+      "reason": "本包隔离样例已有可校验的JSON输入边界；其他数据规则仍待绑定",
+      "sourceRef": "examples/verification-sample/GUIDE.md"
+    },
+    {
+      "domain": "architecture",
+      "applicability": "unknown",
+      "reason": "公共规则已有，具体业务及检查仍需项目绑定",
+      "sourceRef": "docs/engineering-rule-baseline-bindings-20260927.md"
+    },
+    {
+      "domain": "external",
+      "applicability": "unknown",
+      "reason": "公共规则已有，具体业务及检查仍需项目绑定",
+      "sourceRef": "docs/engineering-rule-baseline-bindings-20260927.md"
+    }
+  ],
+  "bindings": [
+    {
+      "ruleId": "ERR-3",
+      "implementationRefs": [
+        "src/business-contracts.mjs",
+        "examples/verification-sample/server.mjs"
+      ],
+      "decisionRefs": [
+        "docs/engineering-rule-baseline-bindings-20260927.md"
+      ],
+      "checkIds": [
+        "contracts"
+      ],
+      "acIds": []
+    },
+    {
+      "ruleId":"DATA-1",
+      "implementationRefs":["examples/verification-sample/server.mjs","examples/verification-sample/rule-check.mjs"],
+      "decisionRefs":["examples/verification-sample/GUIDE.md"],
+      "checkIds":["contracts"],
+      "acIds":[]
+    }
+  ]
+}

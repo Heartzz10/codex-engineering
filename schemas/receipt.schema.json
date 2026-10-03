@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "runId",
+    "projectId",
+    "checkId",
+    "packageVersion",
+    "status",
+    "fingerprint",
+    "startedAt",
+    "finishedAt",
+    "businessAcceptance"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "packageVersion": {
+      "const": "0.5.14"
+    },
+    "businessAcceptance": {
+      "const": false
+    },
+    "status": {
+      "enum": [
+        "check_passed",
+        "check_failed",
+        "timed_out",
+        "termination_unconfirmed",
+        "output_limit",
+        "execution_error"
+      ]
+    },
+    "fingerprint": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

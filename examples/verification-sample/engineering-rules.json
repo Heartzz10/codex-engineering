@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "1.0.0",
+  "domains": [
+    {"domain":"ui","applicability":"applicable","reason":"现有页面有输入、保存和搜索","sourceRef":"GUIDE.md"},
+    {"domain":"interaction","applicability":"applicable","reason":"保存和搜索为异步交互","sourceRef":"GUIDE.md"},
+    {"domain":"errors","applicability":"applicable","reason":"现有输入及内部错误提示","sourceRef":"GUIDE.md"},
+    {"domain":"logs","applicability":"unknown","reason":"仅有可选事件回调；无项目业务日志保存决定","sourceRef":"GUIDE.md"},
+    {"domain":"permissions","applicability":"not_applicable","reason":"隔离样例无登录或业务角色授权","sourceRef":"GUIDE.md"},
+    {"domain":"data","applicability":"applicable","reason":"现有JSON接口及笔记持久化","sourceRef":"GUIDE.md"},
+    {"domain":"architecture","applicability":"unknown","reason":"未确认模块依赖方向或解析检查","sourceRef":"GUIDE.md"},
+    {"domain":"external","applicability":"not_applicable","reason":"隔离样例不连接外部供应商或AI服务","sourceRef":"GUIDE.md"}
+  ],
+  "ruleApplicability": [
+    {"ruleId":"INT-3","applicability":"not_applicable","reason":"本样例没有模态弹窗","sourceRef":"GUIDE.md"}
+  ],
+  "bindings": [
+    {"ruleId":"UI-1","implementationRefs":["public/index.html","ui-driver.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["browser-flow"],"acIds":["AC-0009"]},
+    {"ruleId":"UI-2","implementationRefs":["public/index.html","ui-driver.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["browser-flow"],"acIds":["AC-0009"]},
+    {"ruleId":"UI-3","implementationRefs":["public/index.html","ui-driver.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["browser-flow"],"acIds":["AC-0010"]},
+    {"ruleId":"UI-4","implementationRefs":["public/index.html","ui-driver.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["browser-flow"],"acIds":["AC-0009"]},
+    {"ruleId":"INT-1","implementationRefs":["server.mjs","public/index.html","ui-driver.mjs","rule-check.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["api-contracts","browser-flow"],"acIds":["AC-0011"]},
+    {"ruleId":"INT-2","implementationRefs":["public/index.html","ui-driver.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["browser-flow"],"acIds":["AC-0008"]},
+    {"ruleId":"INT-4","implementationRefs":["public/index.html","ui-driver.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["browser-flow"],"acIds":["AC-0012"]},
+    {"ruleId":"ERR-1","implementationRefs":["public/index.html","ui-driver.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["browser-flow"],"acIds":["AC-0012"]},
+    {"ruleId":"ERR-2","implementationRefs":["server.mjs","public/index.html","ui-driver.mjs","rule-check.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["api-contracts","browser-flow"],"acIds":["AC-0013"]},
+    {"ruleId":"ERR-3","implementationRefs":["server.mjs","rule-check.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["api-contracts"],"acIds":[]},
+    {"ruleId":"ERR-4","implementationRefs":["server.mjs","public/index.html","ui-driver.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["browser-flow"],"acIds":["AC-0014"]},
+    {"ruleId":"DATA-1","implementationRefs":["server.mjs","rule-check.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["api-contracts"],"acIds":[]},
+    {"ruleId":"DATA-2","implementationRefs":["server.mjs","ui-driver.mjs","rule-check.mjs"],"decisionRefs":["GUIDE.md"],"checkIds":["api-contracts","browser-flow"],"acIds":["AC-0015"]}
+  ]
+}

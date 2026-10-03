@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "version": "judgments-routing-1.1.0",
+  "default_mode": "advisory",
+  "profiles": {
+    "ordinary_ui_copy_fidelity_v1": {
+      "kind": "requirement_fidelity",
+      "allowed_material_scopes": [
+        "public",
+        "synthetic"
+      ],
+      "model": "jev-1.13.0",
+      "standard_sha256": "3c5e4a2542e13f7bf444dcfdf151409425cd7b09a37496ee5bbd6f27862eaf0e",
+      "audit_algorithm": "sha256-prefix8-mod100",
+      "audit_percent": 10,
+      "allowed_copy_categories": [
+        "ordinary_status_copy",
+        "ordinary_help_copy"
+      ],
+      "excluded_effects": [
+        "deletion_or_overwrite",
+        "permission_request",
+        "payment_or_privacy",
+        "safety_or_legal",
+        "new_business_rule",
+        "cross_material_interpretation"
+      ],
+      "approved_source_roots": [
+        "examples/verification-sample",
+        "examples/engineering-judgments/ui-copy-pilot",
+        "docs/evidence/ui-design-20260928"
+      ],
+      "qualification": null
+    }
+  }
+}

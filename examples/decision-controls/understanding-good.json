@@ -1,0 +1,6 @@
+{
+  "caseId": "goal-preservation",
+  "decisions": [ { "key": "user-intent", "id": "fixture:DEC-1", "kind": "decision", "status": "active", "sourceRef": "docs/master-plan-v0.9.md" } ],
+  "proposal": { "optimizationTarget": "fewer-errors-and-rework" },
+  "semanticReview": { "reviewer": "main-agent", "status": "confirmed", "sourceRef": "fixture:review-1", "decisionIds": ["fixture:DEC-1"] }
+}

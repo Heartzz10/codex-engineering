@@ -1,0 +1,760 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "feature-map.schema.json",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "sharedVersion",
+    "revision",
+    "updatedAt",
+    "contentHash",
+    "previousRevisionHash",
+    "committedRequests",
+    "carryForward",
+    "requirements",
+    "features",
+    "acceptanceCriteria",
+    "changes",
+    "evidence",
+    "iterations"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "projectId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sharedVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "updatedAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contentHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "previousRevisionHash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "committedRequests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "requestId",
+          "requestHash",
+          "committedRevision",
+          "assignedIds",
+          "result"
+        ],
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requestHash": {
+            "type": "string",
+            "minLength": 1
+          },
+          "committedRevision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "assignedIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "result": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "carryForward": {
+      "type": "array"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/requirement"
+      }
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/feature"
+      }
+    },
+    "acceptanceCriteria": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/acceptanceCriterion"
+      }
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/change"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "iterations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/iteration"
+      }
+    }
+  },
+  "$defs": {
+    "judgmentSourceRef": {
+      "type": "object",
+      "required": ["path", "startLine", "endLine"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "startLine": { "type": "integer", "minimum": 1 },
+        "endLine": { "type": "integer", "minimum": 1 },
+        "sourceLabel": { "type": "string", "minLength": 1 }
+      }
+    },
+    "judgmentTargetRef": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "startLine": { "type": "integer", "minimum": 1 },
+        "endLine": { "type": "integer", "minimum": 1 },
+        "pointer": { "type": "string" },
+        "sourceLabel": { "type": "string", "minLength": 1 }
+      },
+      "oneOf": [
+        { "required": ["startLine", "endLine"], "not": { "required": ["pointer"] } },
+        { "required": ["pointer"], "not": { "anyOf": [{ "required": ["startLine"] }, { "required": ["endLine"] }] } }
+      ]
+    },
+    "semanticReview": {
+      "type": "object",
+      "required": ["kind", "materialScope", "category", "targetRef", "reviewerRef", "checkedExclusions", "presentEffects"],
+      "properties": {
+        "kind": { "type": "string", "minLength": 1 },
+        "materialScope": { "enum": ["public", "synthetic", "private"] },
+        "category": { "type": "string", "minLength": 1 },
+        "targetRef": { "$ref": "#/$defs/judgmentTargetRef" },
+        "reviewerRef": { "type": "string", "minLength": 1 },
+        "checkedExclusions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "presentEffects": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "requirement": {
+      "type": "object",
+      "required": [
+        "id",
+        "createdAt",
+        "recordedBy",
+        "sourceRef",
+        "intent",
+        "decision",
+        "schedule",
+        "featureIds",
+        "openQuestions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^REQ-[0-9]{4,}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recordedBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision": {
+          "enum": [
+            "proposed",
+            "needs_decision",
+            "accepted",
+            "rejected",
+            "superseded",
+            "withdrawn"
+          ]
+        },
+        "decisionRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schedule": {
+          "enum": [
+            "current",
+            "backlog",
+            "deferred"
+          ]
+        },
+        "featureIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "openQuestions": {
+          "type": "array"
+        },
+        "decisionEvidenceRefs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/judgmentSourceRef" }
+        }
+      }
+    },
+    "feature": {
+      "type": "object",
+      "required": [
+        "id",
+        "createdAt",
+        "recordedBy",
+        "sourceRef",
+        "title",
+        "user",
+        "scenario",
+        "goal",
+        "scope",
+        "exclusions",
+        "humanAutomation",
+        "requirementIds",
+        "dependencyIds",
+        "entrypointIds",
+        "implementationRefs",
+        "acceptanceCriteria",
+        "lifecycle",
+        "deliveryStatus"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^FEAT-[0-9]{4,}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recordedBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "user": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario": {
+          "type": "string",
+          "minLength": 1
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "array"
+        },
+        "exclusions": {
+          "type": "array"
+        },
+        "humanAutomation": {
+          "type": "object"
+        },
+        "requirementIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "dependencyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "entrypointIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "implementationRefs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "path"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        },
+        "acceptanceCriteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "lifecycle": {
+          "enum": [
+            "active",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "deliveryStatus": {
+          "enum": [
+            "planned",
+            "in_progress",
+            "implemented"
+          ]
+        }
+      }
+    },
+    "acceptanceCriterion": {
+      "type": "object",
+      "required": [
+        "id",
+        "createdAt",
+        "recordedBy",
+        "sourceRef",
+        "featureId",
+        "revision",
+        "requirementIds",
+        "preconditions",
+        "actions",
+        "expected",
+        "verificationMethod",
+        "effects",
+        "assertions",
+        "requiredEvidenceTypes",
+        "dependencyRefs",
+        "implementationRefs",
+        "requiredTargets"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^AC-[0-9]{4,}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recordedBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "featureId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "requirementIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "preconditions": {
+          "type": "array"
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 1
+        },
+        "expected": {},
+        "verificationMethod": {
+          "enum": [
+            "baseline",
+            "ui",
+            "api",
+            "cli",
+            "background"
+          ]
+        },
+        "effects": {
+          "type": "object",
+          "required": [
+            "writes",
+            "network",
+            "paid"
+          ],
+          "properties": {
+            "writes": {
+              "enum": [
+                "none",
+                "test-artifacts",
+                "business-data"
+              ]
+            },
+            "network": {
+              "type": "boolean"
+            },
+            "paid": {
+              "type": "boolean"
+            }
+          }
+        },
+        "assertions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "semanticReview": { "$ref": "#/$defs/semanticReview" }
+            }
+          }
+        },
+        "requiredEvidenceTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "dependencyRefs": {
+          "type": "array"
+        },
+        "implementationRefs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "path"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        },
+        "requiredTargets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "targetId",
+              "entrypointId",
+              "roleRef",
+              "scenario",
+              "environmentRef",
+              "dataScopeRef"
+            ],
+            "properties": {
+              "targetId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entrypointId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "roleRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scenario": {
+                "type": "string",
+                "minLength": 1
+              },
+              "environmentRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "dataScopeRef": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "change": {
+      "type": "object",
+      "required": [
+        "id",
+        "createdAt",
+        "recordedBy",
+        "sourceRef",
+        "requirementIds",
+        "featureIds",
+        "acIds",
+        "baseRevision",
+        "type",
+        "reason",
+        "decision",
+        "decisionRef",
+        "differences",
+        "impact",
+        "implementationRefs",
+        "migrationImpact",
+        "recoveryImpact",
+        "lineageTransfers",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CHG-[0-9]{4,}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recordedBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requirementIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "featureIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "acIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "baseRevision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decisionRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "differences": {
+          "type": "array"
+        },
+        "impact": {
+          "type": "array"
+        },
+        "implementationRefs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "path"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        },
+        "migrationImpact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recoveryImpact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lineageTransfers": {
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "implemented_pending_verification",
+            "closed",
+            "cancelled"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "allOf": [
+        {
+          "$ref": "acceptance.schema.json#/$defs/evidence"
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "createdAt",
+            "recordedBy",
+            "sourceRef"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^EVD-[0-9]{4,}$"
+            },
+            "createdAt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "recordedBy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sourceRef": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "iteration": {
+      "type": "object",
+      "required": [
+        "id",
+        "createdAt",
+        "recordedBy",
+        "sourceRef",
+        "goal",
+        "exclusions",
+        "snapshots",
+        "environmentRef",
+        "implementationBaseline"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ITER-[0-9]{4,}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recordedBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exclusions": {
+          "type": "array"
+        },
+        "snapshots": {
+          "type": "array"
+        },
+        "environmentRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "implementationBaseline": {}
+      }
+    }
+  }
+}

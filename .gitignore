@@ -1,0 +1,14 @@
+node_modules/
+*.log
+.tmp/
+.env
+.env.*
+local-state/
+**/evidence/
+**/artifacts/
+**/runs/
+**/backups/
+.runtime/
+skills/codex-engineering/runtime.json
+**/runtime.local.json
+examples/verification-sample/profile.json

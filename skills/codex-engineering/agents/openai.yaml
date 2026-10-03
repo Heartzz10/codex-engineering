@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目工程协作"
+  short_description: "新增功能、可行性与性能选择有未知时，按需接需求、选型、设计、排错和验收"
+  default_prompt: "使用 $codex-engineering 按当前项目需要处理新增功能、方案/性能选择、需求、设计、实施、排错或真实验收；复用有效旧决定，明确小改走短路径。"

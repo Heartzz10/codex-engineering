@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "sample-project",
+  "sharedVersion": "0.5.14",
+  "root": "C:/path/to/project",
+  "authoritativeDocuments": [
+    "docs/product.md",
+    "docs/current-handoff.md"
+  ],
+  "environmentRef": "替换为项目当前环境的非敏感引用",
+  "environmentFiles": [],
+  "environmentKeys": [],
+  "permissions": {
+    "network": false,
+    "testArtifacts": false
+  },
+  "entrypoints": [
+    {
+      "id": "user-app",
+      "kind": "real",
+      "url": "http://localhost:3000"
+    }
+  ],
+  "checks": [
+    {
+      "id": "unit-tests",
+      "executable": "C:/path/to/node.exe",
+      "args": [
+        "--test",
+        "tests"
+      ],
+      "cwd": ".",
+      "reviewed": true,
+      "authorizationRef": "替换为已确认的检查授权记录",
+      "effects": {
+        "writes": "none",
+        "network": false,
+        "paid": false
+      },
+      "timeoutMs": 120000,
+      "inputs": [
+        "package.json",
+        "src",
+        "tests"
+      ]
+    }
+  ]
+}
