@@ -15,8 +15,8 @@
       "sha256": "04744c95973e46a6cbdc3dfdc412cac9318f4dfcc387cca3f56c7a9c9c5a6010"
     },
     "ARCHITECTURE.md": {
-      "bytes": 6058,
-      "sha256": "8d7a0c3777aea3e8987ca13512c5167c7701af90b44a9b9888865c9cb8cf5be7"
+      "bytes": 9409,
+      "sha256": "31b746a98abf1ed5d4e076155648b9f4ab10aff0e7cca7dc330c58b13d47b328"
     },
     "catalog/engineering-rules.json": {
       "bytes": 9157,
@@ -35,8 +35,8 @@
       "sha256": "ce0db65f436e938a6867c309253d350fdc145825af5a4ee0fb2ff7c48c4d2693"
     },
     "CHANGELOG.md": {
-      "bytes": 891,
-      "sha256": "92873a9ae41709e1d4045d46d7f5417615b0da18bc3c9ca65f0abe7fa0d6783f"
+      "bytes": 1500,
+      "sha256": "d12325cf2d160dd3ac913a52b8bbf189846c45597224c8b3340c11149bd0afdb"
     },
     "docs/engineering-rule-baseline-bindings-20260927.md": {
       "bytes": 3439,
@@ -271,16 +271,16 @@
       "sha256": "a26e4cc7d0ad99f04820889c21d062fb7a8760f858c162292fe003fea869f01b"
     },
     "PUBLIC-VALIDATION.md": {
-      "bytes": 2950,
-      "sha256": "83bcd80146f734c5c6a0e65442a5d992a9ff3b809bed59754152efb880e4d5bb"
+      "bytes": 3597,
+      "sha256": "001d8601b86454e5eaaab8995ab06bf828d20e74842b9b6b23a3755268941bae"
     },
     "README.md": {
-      "bytes": 4437,
-      "sha256": "a792c4fd038eb8183f0eb490da677a898d4d3bf549a82849a9df19b9807de7d1"
+      "bytes": 7755,
+      "sha256": "f570de6c80e3d7fd711ea6681c75c162a86222a4931b3bc47258f0362c376435"
     },
     "release-scope.json": {
-      "bytes": 5246,
-      "sha256": "e2e054bdbccb71240cb95581d974f884cb6e11418c3eff4d13b08a5895849762"
+      "bytes": 5309,
+      "sha256": "9648b247390b6ae70b335aaa5d09c71be5d16ee7fe6be8d2053b85b907d1cee9"
     },
     "schemas/acceptance.schema.json": {
       "bytes": 6706,
@@ -333,6 +333,10 @@
     "scripts/engineering-judge.mjs": {
       "bytes": 15041,
       "sha256": "5281c4ab69b4242d9b6cb2325ef4bee3bf5c4cfbd5f2ecf22da742a61e02aade"
+    },
+    "scripts/install-ce.mjs": {
+      "bytes": 6380,
+      "sha256": "42e80fb37fc1e956cc0188aa882c5ec90cf070405d2ee80747f410b3b49606ad"
     },
     "scripts/model-route.mjs": {
       "bytes": 1273,
@@ -699,8 +703,8 @@
       "sha256": "7deeb863bb4f95acc07724bc1ce388770143ae04670522546990942d1bf08c01"
     },
     "START-HERE.md": {
-      "bytes": 4184,
-      "sha256": "8363e9d7218029ade8b74e39da01d263ef9d028595dea58796ad22afc3907bc1"
+      "bytes": 5356,
+      "sha256": "6226ceb4301789c79fa4eb749b76616964bd6adb004b965eb4b94855d573cd58"
     },
     "templates/controls.example.json": {
       "bytes": 754,
@@ -769,6 +773,10 @@
     "tests/helpers/judgment-response.mjs": {
       "bytes": 686,
       "sha256": "2af5b2f8d6127b459bb89cae6b141ce145268499c5cd0ff8bddfbd14aa1411aa"
+    },
+    "tests/install-ce.test.mjs": {
+      "bytes": 3730,
+      "sha256": "b563b6cc36866c0b32812be88a983341045b90396c678ac5246d61f9d42debbc"
     },
     "tests/judgment-binary-contract.test.mjs": {
       "bytes": 8406,

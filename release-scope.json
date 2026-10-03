@@ -74,7 +74,9 @@
     "START-HERE.md",
     "vendor/ui-tools/licenses/Apache-2.0.txt",
     "LICENSE",
-    "PUBLIC-MANIFEST.json"
+    "PUBLIC-MANIFEST.json",
+    "scripts/install-ce.mjs",
+    "tests/install-ce.test.mjs"
   ],
   "directories": [
     {
