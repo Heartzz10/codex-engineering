@@ -1,8 +1,10 @@
 # Codex Engineering（CE）
 
+[English](README.en.md) · [使用案例](USE-CASES.md) · [常见问题](FAQ.md)
+
 **给 Codex 一套从想法到交付的工作方法。**
 
-CE 是 Codex 的工程协作扩展。你描述想完成的事，CE 帮助 Codex 找到合适的方案、补齐关键需求、完成实现，再通过实际使用确认结果。把选方案的依据、开发的步骤和验收的标准连接起来，让每一步都有来由，也知道什么时候完成。
+CE 是面向 Codex 的工程协作 Skill（AI coding workflow）。你描述想完成的事，CE 帮助 Codex 找到合适的方案、补齐关键需求、完成实现，再通过实际使用确认结果。把选方案的依据、开发的步骤和验收的标准连接起来，让每一步都有来由，也知道什么时候完成。
 
 [直接安装](#开始使用) · [使用指南](START-HERE.md) · [技术架构](ARCHITECTURE.md) · [验证记录](PUBLIC-VALIDATION.md)
 

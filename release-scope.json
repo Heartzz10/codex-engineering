@@ -76,7 +76,10 @@
     "LICENSE",
     "PUBLIC-MANIFEST.json",
     "scripts/install-ce.mjs",
-    "tests/install-ce.test.mjs"
+    "tests/install-ce.test.mjs",
+    "README.en.md",
+    "USE-CASES.md",
+    "FAQ.md"
   ],
   "directories": [
     {

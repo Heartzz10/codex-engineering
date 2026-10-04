@@ -1,5 +1,7 @@
 # 开始使用 CE
 
+[English overview](README.en.md) · [使用案例](USE-CASES.md) · [常见问题](FAQ.md)
+
 将 CE 接入 Codex 后，在项目里描述你想完成的事。CE 按任务选择需求、调查、设计、实施和验证方法。
 
 ## 让 Codex 帮你安装

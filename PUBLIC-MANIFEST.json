@@ -35,8 +35,8 @@
       "sha256": "ce0db65f436e938a6867c309253d350fdc145825af5a4ee0fb2ff7c48c4d2693"
     },
     "CHANGELOG.md": {
-      "bytes": 1500,
-      "sha256": "d12325cf2d160dd3ac913a52b8bbf189846c45597224c8b3340c11149bd0afdb"
+      "bytes": 1859,
+      "sha256": "724f821b72b2c1bf5a3eb0347f13ad8f8279851c0a1ff7221b4790ab5e1dfcbd"
     },
     "docs/engineering-rule-baseline-bindings-20260927.md": {
       "bytes": 3439,
@@ -218,6 +218,10 @@
       "bytes": 4271,
       "sha256": "4ef048aae5e2a1a24ffd07bde17c092512bdf2d0c1055315fce8eda769c1861b"
     },
+    "FAQ.md": {
+      "bytes": 5259,
+      "sha256": "ebd05a789f61589b946ed0037efb49c820463a9d1bf2a6eae45923bcd58b302a"
+    },
     "LICENSE": {
       "bytes": 1087,
       "sha256": "8ef3fe28f40d01b52f28c4a0051d97323f1d4f5b1cd5ae64a657da462db8f48c"
@@ -271,16 +275,20 @@
       "sha256": "a26e4cc7d0ad99f04820889c21d062fb7a8760f858c162292fe003fea869f01b"
     },
     "PUBLIC-VALIDATION.md": {
-      "bytes": 3597,
-      "sha256": "001d8601b86454e5eaaab8995ab06bf828d20e74842b9b6b23a3755268941bae"
+      "bytes": 3975,
+      "sha256": "d024f2e209738e3fc74e8a2cad68af48ab783224f8714be143fa6f2a24c85fb2"
+    },
+    "README.en.md": {
+      "bytes": 9346,
+      "sha256": "7fd9bfb0f0806c43e723fa9c48682275b61258adc718808fa06fd14d5103fe1f"
     },
     "README.md": {
-      "bytes": 7755,
-      "sha256": "f570de6c80e3d7fd711ea6681c75c162a86222a4931b3bc47258f0362c376435"
+      "bytes": 7868,
+      "sha256": "35f565425f9e8722fd1439d4a64a916de4f21e7c44205a558f4337101ac8a75c"
     },
     "release-scope.json": {
-      "bytes": 5309,
-      "sha256": "9648b247390b6ae70b335aaa5d09c71be5d16ee7fe6be8d2053b85b907d1cee9"
+      "bytes": 5363,
+      "sha256": "6dbc66b2fd37100be4c30e51fe8a7ed839a35521b3bd9b8ef8f6d423a7e930c7"
     },
     "schemas/acceptance.schema.json": {
       "bytes": 6706,
@@ -703,8 +711,8 @@
       "sha256": "7deeb863bb4f95acc07724bc1ce388770143ae04670522546990942d1bf08c01"
     },
     "START-HERE.md": {
-      "bytes": 5356,
-      "sha256": "6226ceb4301789c79fa4eb749b76616964bd6adb004b965eb4b94855d573cd58"
+      "bytes": 5448,
+      "sha256": "5a661c22ce2d0192ccc22424cd750d1d7346b97d61775dedafd3d78f2dff2936"
     },
     "templates/controls.example.json": {
       "bytes": 754,
@@ -1493,6 +1501,10 @@
     "upstream/pstack/sources/pstack/skills/why/SKILL.md": {
       "bytes": 9989,
       "sha256": "5359ca2077226dff35c9830100df0503d4b49ff21c9d1c4ad5cbd413253d103a"
+    },
+    "USE-CASES.md": {
+      "bytes": 4259,
+      "sha256": "9092bd1e047fdf30fb21d0d6e83b73492c8a8be1235832c76e8172aef02668dd"
     },
     "vendor/ui-tools/axe.min.js": {
       "bytes": 580491,
